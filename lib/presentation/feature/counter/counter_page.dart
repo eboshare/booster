@@ -12,13 +12,13 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Demo Home Page'),
+        title: const Text('Flutter Demo Home Page'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('You have pushed the button this many times:'),
+            const Text('You have pushed the button this many times:'),
             Observer(
               builder: (_) {
                 return Text(
@@ -33,7 +33,7 @@ class CounterPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: store.increment,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
