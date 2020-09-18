@@ -1,14 +1,14 @@
+import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 part 'counter_store.g.dart';
 
-class CounterStore = CounterStoreBase with _$CounterStore;
+@singleton
+class CounterPageStore = CounterPageStoreBase with _$CounterPageStore;
 
-abstract class CounterStoreBase with Store {
-  CounterStoreBase({this.count = 0});
-
+abstract class CounterPageStoreBase with Store {
   @observable
-  int count;
+  int count = 0;
 
   @action
   void increment() {

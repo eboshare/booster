@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import 'package:flutter_starter_template/injection/injection.dart';
 import 'package:flutter_starter_template/presentation/domain/counter_store.dart';
 
 class CounterPage extends StatelessWidget {
-  static var store = CounterStore();
+  final CounterPageStore store = getIt();
 
   @override
   Widget build(BuildContext context) {

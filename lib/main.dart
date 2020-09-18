@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_template/injection/injection.dart';
 
 import 'package:flutter_starter_template/presentation/feature/counter/counter_page.dart';
 
-void main() => runApp(App());
+void main() {
+  configureDependencies();
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   @override
