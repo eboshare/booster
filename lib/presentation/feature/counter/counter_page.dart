@@ -5,6 +5,7 @@ import 'package:flutter_starter_template/generated/l10n.dart';
 
 import 'package:flutter_starter_template/injection/injection.dart';
 import 'package:flutter_starter_template/presentation/domain/counter_store.dart';
+import 'package:flutter_starter_template/presentation/theme/theme.dart';
 
 class CounterPage extends StatelessWidget {
   final CounterPageStore store = getIt();
@@ -28,7 +29,7 @@ class CounterPage extends StatelessWidget {
               builder: (_) {
                 return Text(
                   store.count.toString(),
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Thm.of(context).textTheme.h4,
                 );
               },
             ),

@@ -7,6 +7,8 @@ import 'package:flutter_starter_template/injection/injection.dart';
 import 'package:flutter_starter_template/presentation/feature/counter/counter_page.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
 import 'package:flutter_starter_template/extensions/extensions.dart';
+import 'package:flutter_starter_template/presentation/theme/theme.dart';
+import 'package:flutter_starter_template/presentation/theme/theme_data.dart';
 
 void main() {
   configureDependencies();
@@ -16,22 +18,25 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Starter Template',  // can't use S.of(context)
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return Thm(
+      themeData: ThmData.main(),
+      child: MaterialApp(
+        title: 'Flutter Starter Template',  // can't use S.of(context)
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        builder: ExtendedNavigator.builder(
+          router: Router(),
+        ),
+        supportedLocales: S.delegate.supportedLocales,
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
       ),
-      builder: ExtendedNavigator.builder(
-        router: Router(),
-      ),
-      supportedLocales: S.delegate.supportedLocales,
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
     );
   }
 }

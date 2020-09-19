@@ -105,7 +105,6 @@ linter:
     - use_rethrow_when_possible
     - valid_regexps
 
-    - always_put_required_named_parameters_first
     - avoid_annotating_with_dynamic
     - avoid_positional_boolean_parameters
     - avoid_returning_this
