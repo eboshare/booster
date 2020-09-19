@@ -5,8 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_starter_template/injection/injection.dart';
 import 'package:flutter_starter_template/presentation/feature/counter/counter_page.dart';
-import 'package:flutter_starter_template/presentation/navigation/router.gr.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
+import 'package:flutter_starter_template/extensions/extensions.dart';
 
 void main() {
   configureDependencies();
@@ -33,6 +33,5 @@ class App extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
     );
-    ;
   }
 }
