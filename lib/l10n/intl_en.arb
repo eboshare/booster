@@ -1,0 +1,6 @@
+{
+  "appName": "Flutter Starter Template",
+  "counterPageTitle": "Counter Page",
+  "counterBody": "You have pushed the button\nthis many times:",
+  "incrementButtonTooltip": "Increment"
+}

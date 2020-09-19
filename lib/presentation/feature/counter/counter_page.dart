@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_starter_template/generated/l10n.dart';
 
 import 'package:flutter_starter_template/injection/injection.dart';
 import 'package:flutter_starter_template/presentation/domain/counter_store.dart';
@@ -10,16 +11,17 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final str = S.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter Page'),
+        title: Text(str.counterPageTitle),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'You have pushed the button\nthis many times:',
+            Text(
+              str.counterBody,
               textAlign: TextAlign.center,
             ),
             Observer(
@@ -35,7 +37,7 @@ class CounterPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: store.increment,
-        tooltip: 'Increment',
+        tooltip: str.incrementButtonTooltip,
         child: const Icon(Icons.plus_one),
       ),
     );
