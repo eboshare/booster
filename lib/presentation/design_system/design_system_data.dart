@@ -2,51 +2,54 @@ import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
 
-import 'package:flutter_starter_template/extensions/extensions.dart';
+import 'package:flutter_starter_template/helper/extensions.dart';
 
-class ThmColor {
+class DesignSystemColor {
   final Color white;
   final Color black;
   final Color softBlack;
+  final Color blue;
 
-  const ThmColor({
+  const DesignSystemColor({
     @required this.white,
     @required this.black,
     @required this.softBlack,
+    @required this.blue,
   });
 }
 
-class ThmTextStyle {
+class DesignSystemText {
   final TextStyle button;
   final TextStyle h1;
   final TextStyle h4;
 
-  const ThmTextStyle({
+  const DesignSystemText({
     @required this.button,
     @required this.h1,
     @required this.h4,
   });
 }
 
-class ThmData {
-  final ThmColor color;
-  final ThmTextStyle textTheme;
+class DesignSystemData {
+  final DesignSystemColor color;
+  final DesignSystemText text;
 
-  const ThmData({
+  const DesignSystemData({
     @required this.color,
-    @required this.textTheme,
+    @required this.text,
   });
 
-  factory ThmData.main() {
-    final color = ThmColor(
+  factory DesignSystemData.main() {
+    final color = DesignSystemColor(
       black: '#1D1C1F'.toColor(),
       white: '#FFFFFF'.toColor(),
       softBlack: '#3E3C42'.toColor(),
+      blue: Colors.blue,
     );
 
-    return ThmData(
+    return DesignSystemData(
       color: color,
-      textTheme: ThmTextStyle(
+      text: DesignSystemText(
         h1: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 42,

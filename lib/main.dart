@@ -4,11 +4,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_starter_template/injection/injection.dart';
-import 'package:flutter_starter_template/presentation/feature/counter/counter_page.dart';
+import 'package:flutter_starter_template/presentation/design_system/design_system.dart';
+import 'package:flutter_starter_template/presentation/design_system/design_system_data.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
-import 'package:flutter_starter_template/extensions/extensions.dart';
-import 'package:flutter_starter_template/presentation/theme/theme.dart';
-import 'package:flutter_starter_template/presentation/theme/theme_data.dart';
+import 'package:flutter_starter_template/helper/extensions.dart';
 
 void main() {
   configureDependencies();
@@ -18,25 +17,32 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Thm(
-      themeData: ThmData.main(),
-      child: MaterialApp(
-        title: 'Flutter Starter Template',  // can't use S.of(context)
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        builder: ExtendedNavigator.builder(
-          router: Router(),
-        ),
-        supportedLocales: S.delegate.supportedLocales,
-        localizationsDelegates: [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
+    return DesignSystem(
+      data: DesignSystemData.main(),
+      child: Setup(),
+    );
+  }
+}
+
+class Setup extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Starter Template', // can't use S.of(context)
+      theme: ThemeData(
+        primarySwatch: DesignSystem.of(context).color.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      builder: ExtendedNavigator.builder(
+        router: Router(),
+      ),
+      supportedLocales: S.delegate.supportedLocales,
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 }
