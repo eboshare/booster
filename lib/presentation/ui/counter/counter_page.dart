@@ -6,13 +6,15 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
 import 'package:flutter_starter_template/helper/composite_disposable.dart';
 import 'package:flutter_starter_template/injection/injection.dart';
+import 'package:flutter_starter_template/interfaces/counter_page_store.dart';
+import 'package:flutter_starter_template/interfaces/json_placeholder_client.dart';
 import 'package:flutter_starter_template/networking/clients/json_placeholder.dart';
 import 'package:flutter_starter_template/presentation/domain/counter_store.dart';
 import 'package:flutter_starter_template/presentation/design_system/design_system.dart';
 
 class CounterPage extends StatelessWidget {
-  final CounterPageStore store = getIt();
-  final JsonPlaceholderClient client = getIt();
+  final ICounterPageStore store = getIt();
+  final ITodoClient client = getIt();
 
   @override
   Widget build(BuildContext context) {
