@@ -1,10 +1,9 @@
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_starter_template/interfaces/counter_page_store.dart';
+import 'package:flutter_starter_template/core/domain/stores/i_counter_page_store.dart';
 
 part 'counter_store.g.dart';
-
 
 @Singleton(as: ICounterPageStore)
 class CounterPageStore = CounterPageStoreBase with _$CounterPageStore;

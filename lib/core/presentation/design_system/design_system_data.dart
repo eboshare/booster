@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:auto_route/auto_route.dart';
-
 import 'package:flutter_starter_template/helper/extensions.dart';
 
 class DesignSystemColor {

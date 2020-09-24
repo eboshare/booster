@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-
 import 'package:mobx/mobx.dart';
 
 abstract class Disposable {

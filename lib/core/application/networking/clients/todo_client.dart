@@ -2,10 +2,10 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-import 'package:flutter_starter_template/networking/models/todo.dart';
-import 'package:flutter_starter_template/interfaces/json_placeholder_client.dart';
+import 'package:flutter_starter_template/core/domain/clients/i_todo_client.dart';
+import 'package:flutter_starter_template/core/domain/entities/todo.dart';
 
-part 'json_placeholder.g.dart';
+part 'todo_client.g.dart';
 
 @Singleton(as: ITodoClient)
 @RestApi(baseUrl: 'https://jsonplaceholder.typicode.com/')

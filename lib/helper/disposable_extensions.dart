@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_starter_template/helper/composite_disposable.dart';
