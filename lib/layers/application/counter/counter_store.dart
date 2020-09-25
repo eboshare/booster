@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_starter_template/core/domain/stores/i_counter_page_store.dart';
+import 'package:flutter_starter_template/layers/domain/stores/i_counter_page_store.dart';
 
 part 'counter_store.g.dart';
 

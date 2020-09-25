@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:flutter_starter_template/core/domain/clients/i_todo_client.dart';
-import 'package:flutter_starter_template/core/domain/stores/i_counter_page_store.dart';
+import 'package:flutter_starter_template/layers/domain/repositories/i_todo_repository.dart';
+import 'package:flutter_starter_template/layers/domain/stores/i_counter_page_store.dart';
 import 'package:flutter_starter_template/injection/injection.dart';
-import 'package:flutter_starter_template/core/presentation/design_system/design_system.dart';
+import 'package:flutter_starter_template/layers/presentation/design_system/design_system.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
 
 class CounterPage extends StatelessWidget {
   final ICounterPageStore store = getIt();
-  final ITodoClient client = getIt();
+  final ITodoRepository client = getIt();
 
   @override
   Widget build(BuildContext context) {

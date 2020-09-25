@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:flutter_starter_template/core/presentation/design_system/design_system.dart';
-import 'package:flutter_starter_template/core/presentation/design_system/design_system_data.dart';
-import 'package:flutter_starter_template/core/presentation/navigation/router.gr.dart';
+import 'package:flutter_starter_template/layers/presentation/design_system/design_system.dart';
+import 'package:flutter_starter_template/layers/presentation/design_system/design_system_data.dart';
+import 'package:flutter_starter_template/layers/presentation/navigation/router.gr.dart';
 import 'package:flutter_starter_template/generated/l10n.dart';
 
 class App extends StatelessWidget {
@@ -12,12 +12,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return DesignSystem(
       data: DesignSystemData.main(),
-      child: Setup(),
+      child: _Setup(),
     );
   }
 }
 
-class Setup extends StatelessWidget {
+class _Setup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
