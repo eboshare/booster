@@ -29,6 +29,7 @@ linter:
     # - avoid_single_cascade_in_expression_statements
     # - avoid_classes_with_only_static_members
     # - directives_ordering
+    # - cascade_invocations
 
     # WORKING WELL
     - always_declare_return_types
@@ -120,7 +121,6 @@ linter:
     - avoid_types_on_closure_parameters
     - avoid_unnecessary_containers
     - camel_case_extensions
-    - cascade_invocations
     - curly_braces_in_flow_control_structures
     - empty_constructor_bodies
     - file_names
