@@ -1,44 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_starter_template/helper/extensions.dart';
+import 'package:flutter_starter_template/utils/extensions.dart';
 
-class DesignSystemColor {
-  final Color white;
-  final Color black;
-  final Color softBlack;
-  final Color blue;
+part 'design_system_data.freezed.dart';
 
-  const DesignSystemColor({
-    @required this.white,
-    @required this.black,
-    @required this.softBlack,
-    @required this.blue,
-  });
+@freezed
+abstract class DesignSystemColors with _$DesignSystemColors {
+  const factory DesignSystemColors({
+    @required Color white,
+    @required Color black,
+    @required Color softBlack,
+    @required Color blue,
+  }) = _DesignSystemColors;
 }
 
-class DesignSystemText {
-  final TextStyle button;
-  final TextStyle h1;
-  final TextStyle h4;
-
-  const DesignSystemText({
-    @required this.button,
-    @required this.h1,
-    @required this.h4,
-  });
+@freezed
+abstract class DesignSystemText with _$DesignSystemText {
+  const factory DesignSystemText({
+    @required TextStyle button,
+    @required TextStyle h1,
+    @required TextStyle h4,
+  }) = _DesignSystemText;
 }
 
 class DesignSystemData {
-  final DesignSystemColor color;
+  final DesignSystemColors colors;
   final DesignSystemText text;
 
   const DesignSystemData({
-    @required this.color,
+    @required this.colors,
     @required this.text,
   });
 
   factory DesignSystemData.main() {
-    final color = DesignSystemColor(
+    final color = DesignSystemColors(
       black: '#1D1C1F'.toColor(),
       white: '#FFFFFF'.toColor(),
       softBlack: '#3E3C42'.toColor(),
@@ -46,7 +42,7 @@ class DesignSystemData {
     );
 
     return DesignSystemData(
-      color: color,
+      colors: color,
       text: DesignSystemText(
         h1: TextStyle(
           fontWeight: FontWeight.w700,

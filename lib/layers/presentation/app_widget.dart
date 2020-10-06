@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -23,10 +23,10 @@ class _Setup extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Starter Template', // can't use S.of(context)
       theme: ThemeData(
-        primarySwatch: DesignSystem.of(context).color.blue,
+        primarySwatch: DesignSystem.of(context).colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      builder: ExtendedNavigator.builder(
+      builder: ExtendedNavigator.builder<Router>(
         router: Router(),
       ),
       supportedLocales: S.delegate.supportedLocales,
