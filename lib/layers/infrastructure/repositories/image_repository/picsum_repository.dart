@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-import 'package:flutter_starter_template/layers/domain/entities/photo/image.dart';
+import 'package:flutter_starter_template/layers/domain/entities/image/image.dart';
 import 'package:flutter_starter_template/layers/domain/failures/image_repository/image_list_failure.dart';
 import 'package:flutter_starter_template/layers/domain/repositories/i_image_repository.dart';
 
@@ -16,7 +16,7 @@ abstract class PicsumClient {
   factory PicsumClient(Dio dio) = _PicsumClient;
 
   @GET('/v2/list')
-  Future<List<Image>> imagesList();
+  Future<List<ImageEntity>> getImagesList();
 }
 
 @Singleton(as: IImageRepository)
@@ -26,9 +26,9 @@ class PicsumRepository implements IImageRepository {
   const PicsumRepository(this.client);
 
   @override
-  Future<Either<ImageListFailure, List<Image>>> getImagesList() async {
+  Future<Either<ImageListFailure, List<ImageEntity>>> getImagesList() async {
     try {
-      return Right(await client.imagesList());
+      return Right(await client.getImagesList());
     } on DioError {
       return Left(ImageListFailure.unknown());
     }

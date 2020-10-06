@@ -43,31 +43,21 @@ class S {
     );
   }
 
-  /// `Counter Page`
-  String get counterPageTitle {
+  /// `Images`
+  String get imageListPageTitle {
     return Intl.message(
-      'Counter Page',
-      name: 'counterPageTitle',
+      'Images',
+      name: 'imageListPageTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `You have pushed the button\nthis many times:`
-  String get counterBody {
+  /// `Can't load an image list`
+  String get errorImageListLoading {
     return Intl.message(
-      'You have pushed the button\nthis many times:',
-      name: 'counterBody',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Increment`
-  String get incrementButtonTooltip {
-    return Intl.message(
-      'Increment',
-      name: 'incrementButtonTooltip',
+      'Can\'t load an image list',
+      name: 'errorImageListLoading',
       desc: '',
       args: [],
     );

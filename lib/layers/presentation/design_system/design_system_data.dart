@@ -24,13 +24,25 @@ abstract class DesignSystemText with _$DesignSystemText {
   }) = _DesignSystemText;
 }
 
+@freezed
+abstract class DesignSystemDimensions with _$DesignSystemDimensions {
+  const factory DesignSystemDimensions({
+    @required double imageInListSize,
+    @required double listViewPadding,
+    @required double imageListTileInnerPadding,
+    @required double maxInteractiveViewerScale,
+  }) = _DesignSystemDimensions;
+}
+
 class DesignSystemData {
   final DesignSystemColors colors;
   final DesignSystemText text;
+  final DesignSystemDimensions dimensions;
 
   const DesignSystemData({
     @required this.colors,
     @required this.text,
+    @required this.dimensions,
   });
 
   factory DesignSystemData.main() {
@@ -43,6 +55,12 @@ class DesignSystemData {
 
     return DesignSystemData(
       colors: color,
+      dimensions: const DesignSystemDimensions(
+        imageInListSize: 150,
+        imageListTileInnerPadding: 10,
+        listViewPadding: 15,
+        maxInteractiveViewerScale: 5,
+      ),
       text: DesignSystemText(
         h1: TextStyle(
           fontWeight: FontWeight.w700,

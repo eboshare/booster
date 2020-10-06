@@ -30,6 +30,7 @@ linter:
     # - avoid_classes_with_only_static_members
     # - directives_ordering
     # - cascade_invocations
+    # - sort_unnamed_constructors_first
 
     # WORKING WELL
     - always_declare_return_types
@@ -95,7 +96,6 @@ linter:
     - recursive_getters
     - slash_for_doc_comments
     - sort_pub_dependencies
-    - sort_unnamed_constructors_first
     - test_types_in_equals
     - throw_in_finally
     - type_init_formals

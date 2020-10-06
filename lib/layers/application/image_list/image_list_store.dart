@@ -2,7 +2,7 @@ import 'package:flutter_starter_template/utils/sealed_classes.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_starter_template/layers/domain/entities/photo/image.dart';
+import 'package:flutter_starter_template/layers/domain/entities/image/image.dart';
 import 'package:flutter_starter_template/layers/domain/stores/i_image_list_store.dart';
 import 'package:flutter_starter_template/layers/domain/repositories/i_image_repository.dart';
 
@@ -17,14 +17,14 @@ abstract class ImageListStoreBase with Store implements IImageListStore {
   ImageListStoreBase(this._repository);
 
   @observable
-  List<Image> _images;
+  List<ImageEntity> _images;
 
   @observable
   LoadingStatus _status;
 
   @override
   @computed
-  List<Image> get images => _images;
+  List<ImageEntity> get images => _images;
 
   @override
   @computed

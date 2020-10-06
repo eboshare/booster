@@ -1,8 +1,14 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import 'package:flutter_starter_template/utils/extensions.dart';
 import 'package:flutter_starter_template/injection/injection.dart';
+import 'package:flutter_starter_template/generated/l10n.dart';
 import 'package:flutter_starter_template/layers/domain/stores/i_image_list_store.dart';
+import 'package:flutter_starter_template/layers/presentation/components/error_placeholder.dart';
+import 'package:flutter_starter_template/layers/presentation/components/image_list_tile.dart';
+import 'package:flutter_starter_template/layers/presentation/design_system/design_system.dart';
 
 class ImageListPage extends StatefulWidget {
   @override
@@ -20,26 +26,45 @@ class _ImageListPageState extends State<ImageListPage> {
 
   @override
   Widget build(BuildContext context) {
+    final str = S.of(context);
+    final designSystem = DesignSystem.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Images'),
+        title: Text(str.imageListPageTitle),
       ),
       body: Observer(
         builder: (context) {
           return store.status.when(
-            loading: () => const CircularProgressIndicator(),
-            error: () {
+            loading: () {
               return const Center(
-                child: Text('error'),
+                child: CircularProgressIndicator(),
+              );
+            },
+            error: () {
+              return Center(
+                child: ErrorPlaceholder(
+                  message: str.errorImageListLoading,
+                ),
               );
             },
             success: () {
-              // return ListView.separated(
-              //   itemBuilder: null,
-              //   separatorBuilder: null,
-              //   itemCount: null,
-              // );
-              return Text(store.images.toString());
+              return ListView.separated(
+                padding: EdgeInsets.all(designSystem.dimensions.listViewPadding),
+                itemCount: store.images.length,
+                separatorBuilder: (_, __) {
+                  return SizedBox(height: designSystem.dimensions.listViewPadding);
+                },
+                itemBuilder: (context, index) {
+                  final image = store.images[index];
+                  return GestureDetector(
+                    onTap: () {
+                      ExtendedNavigator.of(context).pushDetailedImagePage(image: image);
+                    },
+                    child: ImageListTile(image: image),
+                  );
+                },
+              );
             },
           );
         },
