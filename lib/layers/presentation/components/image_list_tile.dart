@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_starter_template/layers/domain/entities/image/image.dart';
-import 'package:flutter_starter_template/layers/presentation/components/alternative/a_cached_network_image.dart';
-import 'package:flutter_starter_template/layers/presentation/design_system/design_system.dart';
+import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
+import 'package:flutter_booster_kit/layers/presentation/components/alternative/a_cached_network_image.dart';
+import 'package:flutter_booster_kit/layers/presentation/design_system/design_system.dart';
 
 class ImageListTile extends StatelessWidget {
   final ImageEntity image;

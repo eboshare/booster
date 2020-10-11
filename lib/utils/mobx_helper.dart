@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_starter_template/utils/enums.dart';
+import 'package:flutter_booster_kit/utils/enums.dart';
 
 LoadingStatus mapObservableFutureToStatus(ObservableFuture future) {
   final status = future?.status;

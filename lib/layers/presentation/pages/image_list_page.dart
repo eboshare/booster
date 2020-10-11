@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:flutter_starter_template/utils/extensions.dart';
-import 'package:flutter_starter_template/injection/injection.dart';
-import 'package:flutter_starter_template/generated/l10n.dart';
-import 'package:flutter_starter_template/layers/domain/stores/i_image_list_store.dart';
-import 'package:flutter_starter_template/layers/presentation/components/error_placeholder.dart';
-import 'package:flutter_starter_template/layers/presentation/components/image_list_tile.dart';
-import 'package:flutter_starter_template/layers/presentation/design_system/design_system.dart';
+import 'package:flutter_booster_kit/utils/extensions.dart';
+import 'package:flutter_booster_kit/injection/injection.dart';
+import 'package:flutter_booster_kit/generated/l10n.dart';
+import 'package:flutter_booster_kit/layers/domain/stores/i_image_list_store.dart';
+import 'package:flutter_booster_kit/layers/presentation/components/error_placeholder.dart';
+import 'package:flutter_booster_kit/layers/presentation/components/image_list_tile.dart';
+import 'package:flutter_booster_kit/layers/presentation/design_system/design_system.dart';
 
 class ImageListPage extends StatefulWidget {
   @override
