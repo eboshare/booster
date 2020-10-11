@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_starter_template/presentation/feature/counter/counter_page.dart';
+import 'package:flutter_booster_kit/injection/injection.dart';
+import 'package:flutter_booster_kit/layers/presentation/app_widget.dart';
 
-void main() => runApp(App());
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: CounterPage(),
-    );
-  }
+void main() {
+  configureDependencies();
+  runApp(App());
 }
