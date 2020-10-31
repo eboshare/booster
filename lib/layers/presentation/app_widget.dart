@@ -12,30 +12,27 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return DesignSystem(
       data: DesignSystemData.main(),
-      child: _Setup(),
-    );
-  }
-}
-
-class _Setup extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Starter Template', // can't use S.of(context)
-      theme: ThemeData(
-        primarySwatch: DesignSystem.of(context).colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            title: 'Flutter Starter Template', // can't use S.of(context)
+            theme: ThemeData(
+              primarySwatch: DesignSystem.of(context).colors.blue,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            builder: ExtendedNavigator.builder<Router>(
+              router: Router(),
+            ),
+            supportedLocales: S.delegate.supportedLocales,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+          );
+        },
       ),
-      builder: ExtendedNavigator.builder<Router>(
-        router: Router(),
-      ),
-      supportedLocales: S.delegate.supportedLocales,
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
     );
   }
 }
