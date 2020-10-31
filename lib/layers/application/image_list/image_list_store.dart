@@ -1,7 +1,7 @@
-import 'package:flutter_booster_kit/utils/sealed_classes.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
+import 'package:flutter_booster_kit/utils/sealed_classes.dart';
 import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
 import 'package:flutter_booster_kit/layers/domain/stores/i_image_list_store.dart';
 import 'package:flutter_booster_kit/layers/domain/repositories/i_image_repository.dart';
