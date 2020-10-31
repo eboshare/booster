@@ -49,3 +49,6 @@ app.*.map.json
 *.freezed.dart
 *.iconfig.dart
 *.config.dart
+
+# Symbolic link to flutter sdk
+.fvm/flutter_sdk
