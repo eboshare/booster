@@ -8,7 +8,7 @@ import 'package:flutter_booster_kit/layers/domain/repositories/i_image_repositor
 
 part 'image_list_store.g.dart';
 
-@Singleton(as: IImageListStore)
+@LazySingleton(as: IImageListStore)
 class ImageListStore = ImageListStoreBase with _$ImageListStore;
 
 abstract class ImageListStoreBase with Store implements IImageListStore {
