@@ -32,11 +32,13 @@ void main() {
   ];
 
   IImageListStore store;
+  IImageRepository mockImageRepository;
 
   setUp(() {
     getIt.reset();
     configureDependencies(Environment.test);
     store = getIt();
+    mockImageRepository = getIt();
   });
 
   group('Image list field', () {
@@ -53,10 +55,9 @@ void main() {
 
     test('Images should not be empty or null during reloading', () async {
       // arrange
-      final IImageRepository repository = getIt();
       final imagesValues = <List<ImageEntity>>[];
       reaction((_) => store.images, imagesValues.add);
-      when(repository.getImagesList()).thenAnswer((_) async => const Right(mockImages));
+      when(mockImageRepository.getImagesList()).thenAnswer((_) async => const Right(mockImages));
       // act
       await store.loadImages();
       await store.loadImages(); // reloading
@@ -74,10 +75,9 @@ void main() {
   group('Status field', () {
     test('There should be a correct status order during loading', () async {
       // arrange
-      final IImageRepository repository = getIt();
       final statuses = <LoadingStatus>[];
       reaction((_) => store.status, statuses.add);
-      when(repository.getImagesList()).thenAnswer((_) async => Left(ImageListFailure.unknown()));
+      when(mockImageRepository.getImagesList()).thenAnswer((_) async => Left(ImageListFailure.unknown()));
       // act
       await store.loadImages();
       // assert
@@ -94,8 +94,7 @@ void main() {
 
     test('Store should set the error status on a failure', () async {
       // arrange
-      final IImageRepository repository = getIt();
-      when(repository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImagesList()).thenAnswer(
         (_) async => Left(ImageListFailure.unknown()),
       );
       // act
@@ -106,8 +105,7 @@ void main() {
 
     test('Store should set the success status when data fetched', () async {
       // arrange
-      final IImageRepository repository = getIt();
-      when(repository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImagesList()).thenAnswer(
         (_) async => const Right(mockImages),
       );
 

@@ -31,15 +31,17 @@ void main() {
       ),
     ];
 
+    IImageRepository mockImageRepository;
+
     setUp(() {
       getIt.reset();
       configureDependencies(Environment.test);
+      mockImageRepository = getIt();
     });
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
       // arrange
-      final IImageRepository repository = getIt();
-      when(repository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImagesList()).thenAnswer(
         (_) async => Left(ImageListFailure.unknown()),
       );
 
@@ -54,8 +56,7 @@ void main() {
 
     testWidgets('The images should be displayed on success loading', (tester) async {
       // arrange
-      final IImageRepository repository = getIt();
-      when(repository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImagesList()).thenAnswer(
         (_) async => const Right(mockImages),
       );
 
