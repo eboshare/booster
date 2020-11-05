@@ -7,31 +7,42 @@ import 'package:flutter_booster_kit/layers/presentation/design_system/design_sys
 import 'package:flutter_booster_kit/layers/presentation/navigation/router.gr.dart';
 import 'package:flutter_booster_kit/generated/l10n.dart';
 
+/// used in tests
+Widget initializeApp({
+  Widget page,
+  TransitionBuilder builder,
+}) {
+  return DesignSystem(
+    data: DesignSystemData.main(),
+    child: Builder(
+      builder: (context) {
+        return MaterialApp(
+          title: 'Flutter Starter Template', // can't use S.of(context)
+          home: page,
+          builder: builder,
+          theme: ThemeData(
+            primarySwatch: DesignSystem.of(context).colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          supportedLocales: S.delegate.supportedLocales,
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        );
+      },
+    ),
+  );
+}
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DesignSystem(
-      data: DesignSystemData.main(),
-      child: Builder(
-        builder: (context) {
-          return MaterialApp(
-            title: 'Flutter Starter Template', // can't use S.of(context)
-            theme: ThemeData(
-              primarySwatch: DesignSystem.of(context).colors.blue,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
-            builder: ExtendedNavigator.builder<Router>(
-              router: Router(),
-            ),
-            supportedLocales: S.delegate.supportedLocales,
-            localizationsDelegates: [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-          );
-        },
+    return initializeApp(
+      builder: ExtendedNavigator.builder<Router>(
+        router: Router(),
       ),
     );
   }

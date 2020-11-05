@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
 import 'package:flutter_booster_kit/layers/domain/failures/image_repository/image_list_failure.dart';
 import 'package:flutter_booster_kit/layers/domain/repositories/i_image_repository.dart';
 import 'package:flutter_booster_kit/layers/presentation/app_widget.dart';
+import 'package:flutter_booster_kit/layers/presentation/pages/image_list_page.dart';
 
 void main() {
   group('Loading', () {
@@ -32,11 +34,13 @@ void main() {
     ];
 
     IImageRepository mockImageRepository;
+    Widget imageListPage;
 
     setUp(() {
       getIt.reset();
       configureDependencies(Environment.test);
       mockImageRepository = getIt();
+      imageListPage = initializeApp(page: ImageListPage());
     });
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
@@ -46,7 +50,7 @@ void main() {
       );
 
       // act
-      await tester.pumpWidget(App());
+      await tester.pumpWidget(imageListPage);
       await tester.pumpAndSettle();
 
       // assert
@@ -61,7 +65,7 @@ void main() {
       );
 
       // act
-      await tester.pumpFrames(App(), const Duration(milliseconds: 1000));
+      await tester.pumpFrames(imageListPage, const Duration(milliseconds: 1000));
 
       // assert
       expect(find.text(S.current.imageListPageTitle), findsOneWidget);
