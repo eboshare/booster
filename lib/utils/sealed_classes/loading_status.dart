@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'sealed_classes.freezed.dart';
+part 'loading_status.freezed.dart';
 
 @freezed
 abstract class LoadingStatus with _$LoadingStatus {

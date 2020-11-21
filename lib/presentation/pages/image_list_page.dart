@@ -8,7 +8,7 @@ import 'package:flutter_booster_kit/domain/stores/i_image_list_store.dart';
 import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
 import 'package:flutter_booster_kit/presentation/components/image_list_tile.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
-import 'package:flutter_booster_kit/utils/extensions.dart';
+import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
 
 class ImageListPage extends StatefulWidget {
   @override

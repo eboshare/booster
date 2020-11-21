@@ -9,7 +9,7 @@ import 'package:flutter_booster_kit/domain/entities/image/image.dart';
 import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
 import 'package:flutter_booster_kit/domain/repositories/i_image_repository.dart';
 import 'package:flutter_booster_kit/domain/stores/i_image_list_store.dart';
-import 'package:flutter_booster_kit/utils/sealed_classes.dart';
+import 'package:flutter_booster_kit/utils/sealed_classes/loading_status.dart';
 
 void main() {
   const mockImages = [
