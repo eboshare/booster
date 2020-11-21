@@ -49,3 +49,6 @@ flutter_intl:
   enabled: true
   class_name: S
   main_locale: en
+  arb_dir: lib/configuration/localization/arb
+  output_dir: lib/configuration/localization/generated
+  use_deferred_loading: false
