@@ -1,4 +1,4 @@
-import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
+import 'package:flutter_booster_kit/domain/entities/image/image.dart';
 import 'package:flutter_booster_kit/utils/sealed_classes.dart';
 
 abstract class IImageListStore {

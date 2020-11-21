@@ -3,13 +3,13 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/layers/domain/failures/image_repository/image_list_failure.dart';
-import 'package:flutter_booster_kit/layers/domain/repositories/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/entities/image/image.dart';
+import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
+import 'package:flutter_booster_kit/domain/repositories/i_image_repository.dart';
 
 part 'picsum_repository.g.dart';
 
-@singleton  // this annotation is just for convenience
+@singleton // this annotation is just for convenience
 @RestApi(baseUrl: 'https://picsum.photos/')
 abstract class PicsumClient {
   @factoryMethod

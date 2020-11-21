@@ -4,13 +4,13 @@ import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:flutter_booster_kit/generated/l10n.dart';
-import 'package:flutter_booster_kit/injection/injection.dart';
-import 'package:flutter_booster_kit/layers/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/layers/domain/failures/image_repository/image_list_failure.dart';
-import 'package:flutter_booster_kit/layers/domain/repositories/i_image_repository.dart';
-import 'package:flutter_booster_kit/layers/presentation/app_widget.dart';
-import 'package:flutter_booster_kit/layers/presentation/pages/image_list_page.dart';
+import 'package:flutter_booster_kit/configuration/injection/injection.dart';
+import 'package:flutter_booster_kit/configuration/localization/generated/l10n.dart';
+import 'package:flutter_booster_kit/domain/entities/image/image.dart';
+import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
+import 'package:flutter_booster_kit/domain/repositories/i_image_repository.dart';
+import 'package:flutter_booster_kit/presentation/app_widget.dart';
+import 'package:flutter_booster_kit/presentation/pages/image_list_page.dart';
 
 void main() {
   group('Loading', () {
