@@ -7,7 +7,7 @@ import './injection.config.dart';
 final getIt = GetIt.instance;
 
 @injectableInit
-void configureDependencies() => $initGetIt(getIt);
+void configureDependencies(String environment) => $initGetIt(getIt, environment: environment);
 
 @module
 abstract class RegisterModule {

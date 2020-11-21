@@ -19,16 +19,16 @@ abstract class PicsumClient {
   Future<List<ImageEntity>> getImagesList();
 }
 
-@Singleton(as: IImageRepository)
+@Singleton(as: IImageRepository, env: [Environment.prod])
 class PicsumRepository implements IImageRepository {
-  final PicsumClient client;
+  final PicsumClient _client;
 
-  const PicsumRepository(this.client);
+  const PicsumRepository(this._client);
 
   @override
   Future<Either<ImageListFailure, List<ImageEntity>>> getImagesList() async {
     try {
-      return Right(await client.getImagesList());
+      return Right(await _client.getImagesList());
     } on DioError {
       return Left(ImageListFailure.unknown());
     }
