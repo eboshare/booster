@@ -596,7 +596,7 @@ packages:
       name: retrofit_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0+1"
+    version: "1.4.0+2"
   rxdart:
     dependency: transitive
     description:
