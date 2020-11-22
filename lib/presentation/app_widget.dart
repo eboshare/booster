@@ -8,16 +8,31 @@ import 'package:flutter_booster_kit/presentation/navigation/router.gr.dart';
 import 'package:flutter_booster_kit/configuration/localization/generated/l10n.dart';
 
 /// Builds root widget and is required for testing.
-Widget initializeApp({
+///
+/// Only one parameter either [page] or [builder] shouldn't be null.
+Widget _initializeApp({
   Widget page,
   TransitionBuilder builder,
 }) {
+  assert(!(page != null && builder != null));
+  assert(() {
+    if (page == null) {
+      return builder != null;
+    } else if (builder == null) {
+      return page != null;
+    } else {
+      return false;
+    }
+  }());
+
   return DesignSystem(
     data: DesignSystemData.main(),
+    // Builder is used to access [DesignSystem.of(context)].
     child: Builder(
       builder: (context) {
         return MaterialApp(
-          title: 'Flutter Starter Template', // can't use S.of(context)
+          // Required due to the inability to use [S.of(context)]
+          title: 'Flutter Starter Template',
           home: page,
           builder: builder,
           theme: ThemeData(
@@ -37,10 +52,14 @@ Widget initializeApp({
   );
 }
 
+Widget initializeAppWithPage({@required Widget page}) => _initializeApp(page: page);
+
+Widget initializeAppWithBuilder({@required TransitionBuilder builder}) => _initializeApp(builder: builder);
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return initializeApp(
+    return initializeAppWithBuilder(
       builder: ExtendedNavigator.builder<Router>(
         router: Router(),
       ),

@@ -40,7 +40,7 @@ void main() {
       getIt.reset();
       configureDependencies(Environment.test);
       mockImageRepository = getIt();
-      imageListPage = initializeApp(page: ImageListPage());
+      imageListPage = initializeAppWithPage(page: ImageListPage());
     });
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
