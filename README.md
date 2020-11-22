@@ -5,7 +5,7 @@ The adjusted template for a new Flutter project which sticks to clean architectu
 
 ### This project uses
 
-- [flutter version 1.22.3](https://github.com/flutter/flutter/releases/tag/1.22.3)
+- [flutter version 1.22.4](https://github.com/flutter/flutter/releases/tag/1.22.3)
 
 - [fvm](https://github.com/leoafarias/fvm) - cli tool for flutter version management
     - When changing flutter version you may need to delete .packages file and run `fvm flutter pub get` to update references to packages. 
