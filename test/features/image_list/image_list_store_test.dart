@@ -1,3 +1,5 @@
+import 'package:flutter_booster_kit/domain/repository_interfaces/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/store_interfaces/i_image_list_store.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
@@ -7,8 +9,6 @@ import 'package:mobx/mobx.dart' hide when;
 import 'package:flutter_booster_kit/configuration/injection/injection.dart';
 import 'package:flutter_booster_kit/domain/entities/image/image.dart';
 import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
-import 'package:flutter_booster_kit/domain/repositories/i_image_repository.dart';
-import 'package:flutter_booster_kit/domain/stores/i_image_list_store.dart';
 import 'package:flutter_booster_kit/utils/sealed_classes/loading_status.dart';
 
 void main() {

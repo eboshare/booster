@@ -1,10 +1,10 @@
+import 'package:flutter_booster_kit/domain/repository_interfaces/i_image_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_booster_kit/utils/sealed_classes/loading_status.dart';
 import 'package:flutter_booster_kit/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/domain/repositories/i_image_repository.dart';
-import 'package:flutter_booster_kit/domain/stores/i_image_list_store.dart';
+import 'package:flutter_booster_kit/domain/store_interfaces/i_image_list_store.dart';
 
 part 'image_list_store.g.dart';
 

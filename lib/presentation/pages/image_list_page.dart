@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booster_kit/domain/store_interfaces/i_image_list_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:flutter_booster_kit/configuration/injection/injection.dart';
 import 'package:flutter_booster_kit/configuration/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/domain/stores/i_image_list_store.dart';
 import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
 import 'package:flutter_booster_kit/presentation/components/image_list_tile.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
