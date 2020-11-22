@@ -21,7 +21,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "appName" : MessageLookupByLibrary.simpleMessage("Flutter Starter Template"),
     "errorImageListLoading" : MessageLookupByLibrary.simpleMessage("Can\'t load an image list"),
     "imageListPageTitle" : MessageLookupByLibrary.simpleMessage("Images")
   };

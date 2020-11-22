@@ -35,22 +35,12 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Flutter Starter Template`
-  String get appName {
-    return Intl.message(
-      'Flutter Starter Template',
-      name: 'appName',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Images`
   String get imageListPageTitle {
     return Intl.message(
       'Images',
       name: 'imageListPageTitle',
-      desc: '',
+      desc: 'Displayed in the app bar of the image list page',
       args: [],
     );
   }
@@ -60,7 +50,7 @@ class S {
     return Intl.message(
       'Can\'t load an image list',
       name: 'errorImageListLoading',
-      desc: '',
+      desc: 'Displayed when a loading error occurs on the image list page',
       args: [],
     );
   }

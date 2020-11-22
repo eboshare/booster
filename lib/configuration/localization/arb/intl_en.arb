@@ -1,6 +1,13 @@
 {
-  "appName": "Flutter Starter Template",
-  "imageListPageTitle": "Images",
+  "@@locale": "en",
 
-  "errorImageListLoading": "Can't load an image list"
+  "imageListPageTitle": "Images",
+  "@imageListPageTitle": {
+    "description": "Displayed in the app bar of the image list page"
+  },
+
+  "errorImageListLoading": "Can't load an image list",
+  "@errorImageListLoading": {
+    "description": "Displayed when a loading error occurs on the image list page"
+  }
 }
