@@ -1,38 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
-
-part 'design_system_data.freezed.dart';
-
-@freezed
-abstract class DesignSystemColors with _$DesignSystemColors {
-  const factory DesignSystemColors({
-    @required Color white,
-    @required Color black,
-    @required Color softBlack,
-    @required Color blue,
-  }) = _DesignSystemColors;
-}
-
-@freezed
-abstract class DesignSystemText with _$DesignSystemText {
-  const factory DesignSystemText({
-    @required TextStyle button,
-    @required TextStyle h1,
-    @required TextStyle h4,
-  }) = _DesignSystemText;
-}
-
-@freezed
-abstract class DesignSystemDimensions with _$DesignSystemDimensions {
-  const factory DesignSystemDimensions({
-    @required double imageInListSize,
-    @required double listViewPadding,
-    @required double imageListTileInnerPadding,
-    @required double maxInteractiveViewerScale,
-  }) = _DesignSystemDimensions;
-}
+import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
 
 class DesignSystemData {
   final DesignSystemColors colors;
@@ -46,16 +15,22 @@ class DesignSystemData {
   });
 
   factory DesignSystemData.main() {
-    final color = DesignSystemColors(
-      black: '#1D1C1F'.toColor(),
-      white: '#FFFFFF'.toColor(),
-      softBlack: '#3E3C42'.toColor(),
-      blue: Colors.blue,
+    // Const variables are required for DesignSystemData to compile as const.
+    const blackColor = Color(0xFF1D1C1F);
+    const whiteColor = Color(0xFFFFFFFF);
+    const softBlackColor = Color(0xFF3E3C42);
+    const blueColor = Colors.blue;
+
+    const colors = DesignSystemColors(
+      black: blackColor,
+      white: whiteColor,
+      softBlack: softBlackColor,
+      blue: blueColor,
     );
 
-    return DesignSystemData(
-      colors: color,
-      dimensions: const DesignSystemDimensions(
+    return const DesignSystemData(
+      colors: colors,
+      dimensions: DesignSystemDimensions(
         imageInListSize: 150,
         imageListTileInnerPadding: 10,
         listViewPadding: 15,
@@ -66,18 +41,18 @@ class DesignSystemData {
           fontWeight: FontWeight.w700,
           fontSize: 42,
           letterSpacing: 0.02 * 42,
-          color: color.black,
+          color: blackColor,
         ),
         h4: TextStyle(
           fontSize: 30,
           letterSpacing: 0.02 * 30,
-          color: color.black,
+          color: blackColor,
         ),
         button: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 18,
           height: 24 / 18,
-          color: color.softBlack,
+          color: softBlackColor,
           letterSpacing: 0.02 * 18,
         ),
       ),
