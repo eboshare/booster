@@ -1,8 +1,8 @@
 name: flutter_booster_kit
-description: An adjusted template for a new flutter project.
+description: The adjusted template for a new flutter project.
 
 publish_to: 'none'
-version: 1.1.0+1
+version: 1.1.1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -45,12 +45,13 @@ dev_dependencies:
   retrofit_generator: any
 
 flutter:
-  uses-material-design: true  # includes the Material Icons font
+  # Includes the Material Icons font.
+  uses-material-design: true
 
 flutter_intl:
   enabled: true
   class_name: S
   main_locale: en
-  arb_dir: lib/configuration/localization/arb
-  output_dir: lib/configuration/localization/generated
+  arb_dir: lib/config/localization/arb
+  output_dir: lib/config/localization/generated
   use_deferred_loading: false
