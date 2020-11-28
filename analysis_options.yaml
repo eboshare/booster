@@ -1,8 +1,8 @@
 analyzer:
   exclude:
     # Excludes flutter_intl code generation
-    - lib/configuration/localization/generated/**/*.dart
-    - lib/configuration/localization/generated/*.dart
+    - lib/config/localization/generated/**/*.dart
+    - lib/config/localization/generated/*.dart
 
     # Excludes other code generation
     - lib/**/*.g.dart

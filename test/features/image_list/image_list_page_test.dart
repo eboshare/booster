@@ -4,13 +4,13 @@ import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:flutter_booster_kit/configuration/injection/injection.dart';
-import 'package:flutter_booster_kit/domain/repository_interfaces/i_image_repository.dart';
-import 'package:flutter_booster_kit/configuration/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
+import 'package:flutter_booster_kit/config/injection/injection.dart';
+import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
+import 'package:flutter_booster_kit/domain/image_list/i_image_repository.dart';
 import 'package:flutter_booster_kit/presentation/app_widget.dart';
 import 'package:flutter_booster_kit/presentation/pages/image_list_page.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_list_failure/image_list_failure.dart';
 
 void main() {
   group('Loading', () {
@@ -45,7 +45,7 @@ void main() {
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
       // arrange
-      when(mockImageRepository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImageList()).thenAnswer(
         (_) async => Left(ImageListFailure.unknown()),
       );
 
@@ -60,7 +60,7 @@ void main() {
 
     testWidgets('The images should be displayed on success loading', (tester) async {
       // arrange
-      when(mockImageRepository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImageList()).thenAnswer(
         (_) async => const Right(mockImages),
       );
 

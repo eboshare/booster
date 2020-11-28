@@ -1,8 +1,9 @@
-import 'package:flutter_booster_kit/domain/entities/image/image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'image.freezed.dart';
-part 'image.g.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
+
+part 'image_dto.freezed.dart';
+part 'image_dto.g.dart';
 
 @freezed
 abstract class ImageDto implements _$ImageDto {

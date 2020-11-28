@@ -1,10 +1,10 @@
-import 'package:flutter_booster_kit/domain/repository_interfaces/i_image_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_booster_kit/utils/sealed_classes/loading_status.dart';
-import 'package:flutter_booster_kit/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/domain/store_interfaces/i_image_list_store.dart';
+import 'package:flutter_booster_kit/domain/image_list/i_image_list_store.dart';
+import 'package:flutter_booster_kit/domain/image_list/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
 
 part 'image_list_store.g.dart';
 
@@ -33,7 +33,7 @@ abstract class ImageListStoreBase with Store implements IImageListStore {
   @override
   Future<void> loadImages() async {
     _status = LoadingStatus.loading();
-    await _repository.getImagesList()
+    await _repository.getImageList()
       ..fold(
         (_) {
           _status = LoadingStatus.error();

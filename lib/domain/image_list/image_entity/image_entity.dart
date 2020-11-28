@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'image.freezed.dart';
+part 'image_entity.freezed.dart';
 
 final _urlRegExp = RegExp(r'\d+/\d+$');
 

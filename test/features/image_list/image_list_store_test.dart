@@ -1,15 +1,15 @@
-import 'package:flutter_booster_kit/domain/repository_interfaces/i_image_repository.dart';
-import 'package:flutter_booster_kit/domain/store_interfaces/i_image_list_store.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart' hide test;
 import 'package:mobx/mobx.dart' hide when;
 
-import 'package:flutter_booster_kit/configuration/injection/injection.dart';
-import 'package:flutter_booster_kit/domain/entities/image/image.dart';
-import 'package:flutter_booster_kit/domain/failures/image_repository/image_list_failure.dart';
+import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/utils/sealed_classes/loading_status.dart';
+import 'package:flutter_booster_kit/domain/image_list/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/image_list/i_image_list_store.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
+import 'package:flutter_booster_kit/domain/image_list/image_list_failure/image_list_failure.dart';
 
 void main() {
   const mockImages = [
@@ -57,7 +57,9 @@ void main() {
       // arrange
       final imagesValues = <List<ImageEntity>>[];
       reaction((_) => store.images, imagesValues.add);
-      when(mockImageRepository.getImagesList()).thenAnswer((_) async => const Right(mockImages));
+      when(mockImageRepository.getImageList()).thenAnswer(
+        (_) async => const Right(mockImages),
+      );
       // act
       await store.loadImages();
       await store.loadImages(); // reloading
@@ -77,7 +79,9 @@ void main() {
       // arrange
       final statuses = <LoadingStatus>[];
       reaction((_) => store.status, statuses.add);
-      when(mockImageRepository.getImagesList()).thenAnswer((_) async => Left(ImageListFailure.unknown()));
+      when(mockImageRepository.getImageList()).thenAnswer(
+        (_) async => Left(ImageListFailure.unknown()),
+      );
       // act
       await store.loadImages();
       // assert
@@ -94,7 +98,7 @@ void main() {
 
     test('Store should set the error status on a failure', () async {
       // arrange
-      when(mockImageRepository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImageList()).thenAnswer(
         (_) async => Left(ImageListFailure.unknown()),
       );
       // act
@@ -105,7 +109,7 @@ void main() {
 
     test('Store should set the success status when data fetched', () async {
       // arrange
-      when(mockImageRepository.getImagesList()).thenAnswer(
+      when(mockImageRepository.getImageList()).thenAnswer(
         (_) async => const Right(mockImages),
       );
 
