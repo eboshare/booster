@@ -29,7 +29,6 @@
 .packages
 .pub-cache/
 .pub/
-!/build/app/outputs/flutter-apk/app-release.apk
 /build/
 
 # Web related
