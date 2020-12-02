@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter_booster_kit/application/image_list/image_list_bloc.dart';
 import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
 import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
 import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
 import 'package:flutter_booster_kit/presentation/components/image_list_tile.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
-import 'package:flutter_booster_kit/domain/image_list/i_image_list_store.dart';
 
 class ImageListPage extends StatefulWidget {
   @override
@@ -16,26 +16,26 @@ class ImageListPage extends StatefulWidget {
 }
 
 class _ImageListPageState extends State<ImageListPage> {
-  final IImageListStore store = getIt();
+  final ImageListBloc bloc = getIt();
 
   @override
   void initState() {
     super.initState();
-    store.loadImages();
+    bloc.add(const ImageListEvent.loadImages());
   }
 
   @override
   Widget build(BuildContext context) {
     final str = S.of(context);
     final designSystem = DesignSystem.of(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(str.imageListPageTitle),
       ),
-      body: Observer(
-        builder: (context) {
-          return store.status.when(
+      body: BlocBuilder<ImageListBloc, ImageListState>(
+        cubit: bloc,
+        builder: (context, state) {
+          return state.when(
             loading: () {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -48,15 +48,15 @@ class _ImageListPageState extends State<ImageListPage> {
                 ),
               );
             },
-            success: () {
+            success: (images) {
               return ListView.separated(
                 padding: EdgeInsets.all(designSystem.dimensions.listViewPadding),
-                itemCount: store.images.length,
+                itemCount: images.length,
                 separatorBuilder: (_, __) {
                   return SizedBox(height: designSystem.dimensions.listViewPadding);
                 },
                 itemBuilder: (context, index) {
-                  final image = store.images[index];
+                  final image = images[index];
                   return GestureDetector(
                     onTap: () {
                       ExtendedNavigator.of(context).pushDetailedImagePage(image: image);
