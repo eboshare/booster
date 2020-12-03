@@ -36,11 +36,8 @@ class _ImageListPageState extends State<ImageListPage> {
         cubit: bloc,
         builder: (context, state) {
           return state.when(
-            loading: () {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
+            initial: _buildProgressIndicator,
+            loading: _buildProgressIndicator,
             error: () {
               return Center(
                 child: ErrorPlaceholder(
@@ -69,6 +66,12 @@ class _ImageListPageState extends State<ImageListPage> {
           );
         },
       ),
+    );
+  }
+
+  Widget _buildProgressIndicator() {
+    return const Center(
+      child: CircularProgressIndicator(),
     );
   }
 }
