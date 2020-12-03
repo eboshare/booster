@@ -1,10 +1,10 @@
-import 'package:flutter_booster_kit/infrastructure/image_list/image_local_dto/image_local_dto.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
 import 'package:flutter_booster_kit/domain/image_list/i_image_repository.dart';
+import 'package:flutter_booster_kit/infrastructure/image_list/image_local_dto/image_local_dto.dart';
 
 part 'image_list_event.dart';
 part 'image_list_state.dart';
@@ -24,10 +24,14 @@ class ImageListBloc extends HydratedBloc<ImageListEvent, ImageListState> {
   }
 
   @override
-  ImageListState fromJson(Map<String, dynamic> json) => ImageListState.fromJson(json);
+  ImageListState fromJson(Map<String, dynamic> json) {
+    return ImageListStateDto.fromJson(json).toStateEntity();
+  }
 
   @override
-  Map<String, dynamic> toJson(ImageListState state) => state.toJson();
+  Map<String, dynamic> toJson(ImageListState state) {
+    return ImageListStateDto.fromStateEntity(state).toJson();
+  }
 
   /// Fetches images from network only if there are no images already loaded.
   Stream<ImageListState> _loadImages(ImageListEvent _) async* {
