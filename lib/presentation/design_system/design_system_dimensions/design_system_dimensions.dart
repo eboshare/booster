@@ -8,7 +8,7 @@ abstract class DesignSystemDimensions with _$DesignSystemDimensions {
   const factory DesignSystemDimensions({
     @required double imageInListSize,
     @required double listViewPadding,
-    @required double imageListTileInnerPadding,
+    @required double galleryTileInnerPadding,
     @required double maxInteractiveViewerScale,
   }) = _DesignSystemDimensions;
 }

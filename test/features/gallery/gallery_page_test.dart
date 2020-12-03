@@ -6,11 +6,11 @@ import 'package:dartz/dartz.dart';
 
 import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/domain/image_list/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/gallery/i_image_repository.dart';
 import 'package:flutter_booster_kit/presentation/app_widget.dart';
-import 'package:flutter_booster_kit/presentation/pages/image_list_page.dart';
-import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
-import 'package:flutter_booster_kit/domain/image_list/image_list_failure/image_list_failure.dart';
+import 'package:flutter_booster_kit/presentation/pages/gallery_page.dart';
+import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
+import 'package:flutter_booster_kit/domain/gallery/gallery_failure/gallery_failure.dart';
 
 void main() {
   group('Loading', () {
@@ -34,41 +34,41 @@ void main() {
     ];
 
     IImageRepository mockImageRepository;
-    Widget imageListPage;
+    Widget galleryPage;
 
     setUp(() {
       getIt.reset();
       configureDependencies(Environment.test);
       mockImageRepository = getIt();
-      imageListPage = initializeAppWithPage(page: ImageListPage());
+      galleryPage = initializeAppWithPage(page: GalleryPage());
     });
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
       // arrange
-      when(mockImageRepository.getImageList()).thenAnswer(
-        (_) async => Left(ImageListFailure.unknown()),
+      when(mockImageRepository.getImages()).thenAnswer(
+        (_) async => Left(GalleryFailure.unknown()),
       );
 
       // act
-      await tester.pumpWidget(imageListPage);
+      await tester.pumpWidget(galleryPage);
       await tester.pumpAndSettle();
 
       // assert
-      expect(find.text(S.current.imageListPageTitle), findsOneWidget);
-      expect(find.text(S.current.errorImageListLoading), findsOneWidget);
+      expect(find.text(S.current.galleryPageTitle), findsOneWidget);
+      expect(find.text(S.current.errorGalleryLoading), findsOneWidget);
     });
 
     testWidgets('The images should be displayed on success loading', (tester) async {
       // arrange
-      when(mockImageRepository.getImageList()).thenAnswer(
+      when(mockImageRepository.getImages()).thenAnswer(
         (_) async => const Right(mockImages),
       );
 
       // act
-      await tester.pumpFrames(imageListPage, const Duration(milliseconds: 1000));
+      await tester.pumpFrames(galleryPage, const Duration(milliseconds: 1000));
 
       // assert
-      expect(find.text(S.current.imageListPageTitle), findsOneWidget);
+      expect(find.text(S.current.galleryPageTitle), findsOneWidget);
       expect(find.text(mockImages.first.author), findsOneWidget);
       expect(find.text(mockImages.last.author), findsOneWidget);
     });

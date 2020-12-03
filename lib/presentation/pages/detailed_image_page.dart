@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
+import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
 import 'package:flutter_booster_kit/presentation/components/alternative/a_cached_network_image.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
 

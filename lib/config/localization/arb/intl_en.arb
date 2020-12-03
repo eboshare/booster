@@ -1,13 +1,13 @@
 {
   "@@locale": "en",
 
-  "imageListPageTitle": "Images",
-  "@imageListPageTitle": {
+  "galleryPageTitle": "Images",
+  "@galleryPageTitle": {
     "description": "Displayed in the app bar of the image list page"
   },
 
-  "errorImageListLoading": "Can't load an image list",
-  "@errorImageListLoading": {
+  "errorGalleryLoading": "Can't load an image list",
+  "@errorGalleryLoading": {
     "description": "Displayed when a loading error occurs on the image list page"
   }
 }

@@ -2,26 +2,26 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_booster_kit/application/image_list/image_list_bloc.dart';
+import 'package:flutter_booster_kit/application/gallery/gallery_bloc.dart';
 import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
 import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
 import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
-import 'package:flutter_booster_kit/presentation/components/image_list_tile.dart';
+import 'package:flutter_booster_kit/presentation/components/gallery_tile.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
 
-class ImageListPage extends StatefulWidget {
+class GalleryPage extends StatefulWidget {
   @override
-  _ImageListPageState createState() => _ImageListPageState();
+  _GalleryPageState createState() => _GalleryPageState();
 }
 
-class _ImageListPageState extends State<ImageListPage> {
-  final ImageListBloc bloc = getIt();
+class _GalleryPageState extends State<GalleryPage> {
+  final GalleryBloc bloc = getIt();
 
   @override
   void initState() {
     super.initState();
-    bloc.add(const ImageListEvent.loadImages());
+    bloc.add(const GalleryEvent.loadImages());
   }
 
   @override
@@ -30,9 +30,9 @@ class _ImageListPageState extends State<ImageListPage> {
     final designSystem = DesignSystem.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(str.imageListPageTitle),
+        title: Text(str.galleryPageTitle),
       ),
-      body: BlocBuilder<ImageListBloc, ImageListState>(
+      body: BlocBuilder<GalleryBloc, GalleryState>(
         cubit: bloc,
         builder: (context, state) {
           return state.when(
@@ -41,7 +41,7 @@ class _ImageListPageState extends State<ImageListPage> {
             error: () {
               return Center(
                 child: ErrorPlaceholder(
-                  message: str.errorImageListLoading,
+                  message: str.errorGalleryLoading,
                 ),
               );
             },
@@ -58,7 +58,7 @@ class _ImageListPageState extends State<ImageListPage> {
                     onTap: () {
                       ExtendedNavigator.of(context).pushDetailedImagePage(image: image);
                     },
-                    child: ImageListTile(image: image),
+                    child: GalleryTile(image: image),
                   );
                 },
               );

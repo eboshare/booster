@@ -32,7 +32,7 @@ class DesignSystemData {
       colors: colors,
       dimensions: DesignSystemDimensions(
         imageInListSize: 150,
-        imageListTileInnerPadding: 10,
+        galleryTileInnerPadding: 10,
         listViewPadding: 15,
         maxInteractiveViewerScale: 5,
       ),

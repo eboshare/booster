@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "errorImageListLoading" : MessageLookupByLibrary.simpleMessage("Can\'t load an image list"),
-    "imageListPageTitle" : MessageLookupByLibrary.simpleMessage("Images")
+    "errorGalleryLoading" : MessageLookupByLibrary.simpleMessage("Can\'t load an image list"),
+    "galleryPageTitle" : MessageLookupByLibrary.simpleMessage("Images")
   };
 }

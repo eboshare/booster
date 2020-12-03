@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_booster_kit/domain/image_list/image_entity/image_entity.dart';
+import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
 import 'package:flutter_booster_kit/presentation/components/alternative/a_cached_network_image.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
 
-class ImageListTile extends StatelessWidget {
+class GalleryTile extends StatelessWidget {
   final ImageEntity image;
 
-  const ImageListTile({
+  const GalleryTile({
     Key key,
     @required this.image,
   }) : super(key: key);
@@ -19,7 +19,7 @@ class ImageListTile extends StatelessWidget {
       margin: EdgeInsets.zero,
       child: Padding(
         padding: EdgeInsets.all(
-          designSystem.dimensions.imageListTileInnerPadding,
+          designSystem.dimensions.galleryTileInnerPadding,
         ),
         child: Row(
           children: [
@@ -35,7 +35,7 @@ class ImageListTile extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: designSystem.dimensions.imageListTileInnerPadding),
+            SizedBox(width: designSystem.dimensions.galleryTileInnerPadding),
             Expanded(
               child: Text(
                 image.author,
