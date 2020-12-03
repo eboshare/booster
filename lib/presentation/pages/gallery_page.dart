@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_booster_kit/application/gallery/gallery_bloc.dart';
 import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
 import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
+import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
 import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
 import 'package:flutter_booster_kit/presentation/components/gallery_tile.dart';
 import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
@@ -16,7 +16,7 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
-  final GalleryBloc bloc = getIt();
+  final IGalleryBloc bloc = getIt();
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class _GalleryPageState extends State<GalleryPage> {
       appBar: AppBar(
         title: Text(str.galleryPageTitle),
       ),
-      body: BlocBuilder<GalleryBloc, GalleryState>(
+      body: BlocBuilder<IGalleryBloc, GalleryStateEntity>(
         cubit: bloc,
         builder: (context, state) {
           return state.when(
@@ -50,7 +50,9 @@ class _GalleryPageState extends State<GalleryPage> {
                 padding: EdgeInsets.all(designSystem.dimensions.listViewPadding),
                 itemCount: images.length,
                 separatorBuilder: (_, __) {
-                  return SizedBox(height: designSystem.dimensions.listViewPadding);
+                  return SizedBox(
+                    height: designSystem.dimensions.listViewPadding,
+                  );
                 },
                 itemBuilder: (context, index) {
                   final image = images[index];

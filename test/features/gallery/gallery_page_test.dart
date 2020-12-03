@@ -6,11 +6,9 @@ import 'package:dartz/dartz.dart';
 
 import 'package:flutter_booster_kit/config/injection/injection.dart';
 import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/domain/gallery/i_image_repository.dart';
+import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
 import 'package:flutter_booster_kit/presentation/app_widget.dart';
 import 'package:flutter_booster_kit/presentation/pages/gallery_page.dart';
-import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
-import 'package:flutter_booster_kit/domain/gallery/gallery_failure/gallery_failure.dart';
 
 void main() {
   group('Loading', () {

@@ -1,38 +1,34 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
-import 'package:flutter_booster_kit/domain/gallery/i_image_repository.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/gallery_state_dto/gallery_state_converter_mixin.dart';
+import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
+import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
 
-part 'gallery_event.dart';
-part 'gallery_state.dart';
-
-part 'gallery_bloc.freezed.dart';
-
-@lazySingleton
-class GalleryBloc extends HydratedBloc<GalleryEvent, GalleryState> with GalleryStateConverterMixin {
+// implements keyword is required for injectable to match interface to this class implementation.
+@LazySingleton(as: IGalleryBloc)
+class GalleryBloc extends HydratedBloc<GalleryEvent, GalleryStateEntity>
+    with GalleryStateConverterMixin
+    implements IGalleryBloc {
   final IImageRepository _repository;
 
-  GalleryBloc(this._repository) : super(const GalleryState.initial());
+  GalleryBloc(this._repository) : super(const GalleryStateEntity.initial());
 
   @override
-  Stream<GalleryState> mapEventToState(GalleryEvent event) {
+  Stream<GalleryStateEntity> mapEventToState(GalleryEvent event) {
     return event.map(loadImages: _loadImages);
   }
 
   /// Fetches images from network only if there are no images already loaded.
-  Stream<GalleryState> _loadImages(GalleryEvent _) async* {
+  Stream<GalleryStateEntity> _loadImages(GalleryEvent _) async* {
     yield* state.maybeMap(
       success: (_) => const Stream.empty(),
       orElse: () async* {
-        yield const GalleryState.loading();
+        yield const GalleryStateEntity.loading();
 
         final failureOrImages = await _repository.getImages();
         yield failureOrImages.fold(
-          (_) => const GalleryState.error(),
-          (images) => GalleryState.success(images),
+          (_) => const GalleryStateEntity.error(),
+          (images) => GalleryStateEntity.success(images),
         );
       },
     );

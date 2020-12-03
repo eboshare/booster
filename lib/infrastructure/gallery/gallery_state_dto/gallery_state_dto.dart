@@ -1,8 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/application/gallery/gallery_bloc.dart';
-import 'package:flutter_booster_kit/domain/gallery/image_entity/image_entity.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/image_local_dto/image_local_dto.dart';
+import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
+import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
 
 part 'gallery_state_dto.freezed.dart';
 part 'gallery_state_dto.g.dart';
@@ -20,7 +19,7 @@ abstract class GalleryStateDto implements _$GalleryStateDto {
 
   factory GalleryStateDto.fromJson(Map<String, dynamic> json) => _$GalleryStateDtoFromJson(json);
 
-  factory GalleryStateDto.fromStateEntity(GalleryState stateEntity) {
+  factory GalleryStateDto.fromStateEntity(GalleryStateEntity stateEntity) {
     return stateEntity.map(
       initial: (_) => const GalleryStateDto.initial(),
       loading: (_) => const GalleryStateDto.loading(),
@@ -29,12 +28,12 @@ abstract class GalleryStateDto implements _$GalleryStateDto {
     );
   }
 
-  GalleryState toStateEntity() {
+  GalleryStateEntity toStateEntity() {
     return map(
-      initial: (_) => const GalleryState.initial(),
-      loading: (_) => const GalleryState.loading(),
-      error: (_) => const GalleryState.error(),
-      success: (state) => GalleryState.success(state.images),
+      initial: (_) => const GalleryStateEntity.initial(),
+      loading: (_) => const GalleryStateEntity.loading(),
+      error: (_) => const GalleryStateEntity.error(),
+      success: (state) => GalleryStateEntity.success(state.images),
     );
   }
 }

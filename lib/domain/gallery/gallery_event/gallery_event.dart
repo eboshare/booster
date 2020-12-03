@@ -1,4 +1,6 @@
-part of 'gallery_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'gallery_event.freezed.dart';
 
 @freezed
 abstract class GalleryEvent with _$GalleryEvent {
