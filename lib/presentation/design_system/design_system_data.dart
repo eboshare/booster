@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
+import 'package:booster/presentation/design_system/design_system.dart';
 
 class DesignSystemData {
   final DesignSystemColors colors;

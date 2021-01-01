@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery.dart';
 
 part 'image_network_dto.freezed.dart';
 part 'image_network_dto.g.dart';

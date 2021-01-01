@@ -4,11 +4,11 @@ import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:flutter_booster_kit/config/injection/injection.dart';
-import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/presentation/app_widget.dart';
-import 'package:flutter_booster_kit/presentation/pages/gallery_page.dart';
+import 'package:booster/config/injection/injection.dart';
+import 'package:booster/config/localization/generated/l10n.dart';
+import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/presentation/app_widget.dart';
+import 'package:booster/presentation/pages/gallery_page.dart';
 
 void main() {
   group('Loading', () {

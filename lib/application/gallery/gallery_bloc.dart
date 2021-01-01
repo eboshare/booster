@@ -1,8 +1,8 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/infrastructure/gallery/gallery.dart';
 
 // implements keyword is required for injectable to match interface to this class implementation.
 @LazySingleton(as: IGalleryBloc)

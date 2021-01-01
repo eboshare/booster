@@ -2,10 +2,10 @@ import 'package:flutter/material.dart' hide Router;
 import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
-import 'package:flutter_booster_kit/presentation/design_system/design_system_data.dart';
-import 'package:flutter_booster_kit/presentation/navigation/router.gr.dart';
-import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
+import 'package:booster/presentation/design_system/design_system.dart';
+import 'package:booster/presentation/design_system/design_system_data.dart';
+import 'package:booster/presentation/navigation/router.gr.dart';
+import 'package:booster/config/localization/generated/l10n.dart';
 
 /// Builds root widget and is required for testing.
 ///

@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_booster_kit/config/injection/injection.dart';
-import 'package:flutter_booster_kit/config/localization/generated/l10n.dart';
-import 'package:flutter_booster_kit/utils/extensions/extensions.dart';
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/presentation/components/error_placeholder.dart';
-import 'package:flutter_booster_kit/presentation/components/gallery_tile.dart';
-import 'package:flutter_booster_kit/presentation/design_system/design_system.dart';
+import 'package:booster/config/injection/injection.dart';
+import 'package:booster/config/localization/generated/l10n.dart';
+import 'package:booster/utils/extensions/extensions.dart';
+import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/presentation/components/error_placeholder.dart';
+import 'package:booster/presentation/components/gallery_tile.dart';
+import 'package:booster/presentation/design_system/design_system.dart';
 
 class GalleryPage extends StatefulWidget {
   @override

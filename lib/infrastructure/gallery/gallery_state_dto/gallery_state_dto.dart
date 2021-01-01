@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/infrastructure/gallery/gallery.dart';
 
 part 'gallery_state_dto.freezed.dart';
 part 'gallery_state_dto.g.dart';

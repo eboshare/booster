@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/infrastructure/gallery/gallery.dart';
 
 part 'picsum_repository.g.dart';
 
