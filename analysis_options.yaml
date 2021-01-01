@@ -1,7 +1,10 @@
 analyzer:
   exclude:
-    - lib/generated/**/*.dart
-    - lib/generated/*.dart
+    # Excludes flutter_intl code generation
+    - lib/config/localization/generated/**/*.dart
+    - lib/config/localization/generated/*.dart
+
+    # Excludes other code generation
     - lib/**/*.g.dart
     - lib/**/*.gr.dart
     - lib/**/*.freezed.dart
@@ -33,6 +36,7 @@ linter:
     # - sort_unnamed_constructors_first
 
     # WORKING WELL
+    # region
     - always_declare_return_types
     - always_put_control_body_on_new_line
     - always_require_non_null_named_parameters
@@ -142,3 +146,4 @@ linter:
     - use_function_type_syntax_for_parameters
     - use_is_even_rather_than_modulo
     - use_string_buffers
+    # endregion
