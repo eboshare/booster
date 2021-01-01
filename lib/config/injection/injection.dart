@@ -22,7 +22,7 @@ abstract class RegisterModule {
     );
   }
 
-  @singleton
+  @lazySingleton
   Dio get dio {
     return Dio()
       ..interceptors.add(

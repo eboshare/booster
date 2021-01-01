@@ -8,7 +8,7 @@ import 'package:booster/infrastructure/gallery/gallery.dart';
 
 part 'picsum_repository.g.dart';
 
-@singleton // This annotation is just for convenience.
+@lazySingleton // This annotation is just for convenience.
 @RestApi(baseUrl: 'https://picsum.photos/')
 abstract class PicsumClient {
   @factoryMethod
@@ -18,7 +18,7 @@ abstract class PicsumClient {
   Future<List<ImageNetworkDto>> getImagesList();
 }
 
-@Singleton(as: IImageRepository, env: [Environment.prod])
+@LazySingleton(as: IImageRepository, env: [Environment.prod])
 class PicsumRepository implements IImageRepository {
   final PicsumClient _client;
 
