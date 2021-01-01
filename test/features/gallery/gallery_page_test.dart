@@ -8,7 +8,7 @@ import 'package:booster/config/injection/injection.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/domain/gallery/gallery.dart';
 import 'package:booster/presentation/app_widget.dart';
-import 'package:booster/presentation/pages/gallery_page.dart';
+import 'package:booster/presentation/gallery/gallery_page.dart';
 
 void main() {
   group('Loading', () {
