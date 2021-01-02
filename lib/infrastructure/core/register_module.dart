@@ -3,6 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'package:booster/config/injection/injection.dart';
+
 @module
 abstract class RegisterModule {
   @lazySingleton
@@ -18,7 +20,7 @@ abstract class RegisterModule {
   Dio get dio {
     return Dio()
       ..interceptors.add(
-        PrettyDioLogger(logPrint: logger.i),
+        PrettyDioLogger(logPrint: getIt<Logger>().i),
       );
   }
 }
