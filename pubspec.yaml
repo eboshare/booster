@@ -32,6 +32,9 @@ dependencies:
 
   cupertino_icons: ^0.1.3
   cached_network_image: ^2.3.2+1
+  # equatable is used inside design system due to
+  # code generation for that slows down the implementation of the layout.
+  equatable: ^1.2.5
 
 dev_dependencies:
   flutter_test:

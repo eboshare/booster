@@ -1,9 +1,12 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:booster/presentation/core/design_system/design_system.dart';
+import 'package:booster/presentation/core/design_system/design_system_colors.dart';
+import 'package:booster/presentation/core/design_system/design_system_text.dart';
+import 'package:booster/presentation/core/design_system/design_system_dimensions.dart';
 
-class DesignSystemData {
+class DesignSystemData extends Equatable {
   final DesignSystemColors colors;
   final DesignSystemText text;
   final DesignSystemDimensions dimensions;
@@ -57,5 +60,14 @@ class DesignSystemData {
         ),
       ),
     );
+  }
+
+  @override
+  List<Object> get props {
+    return [
+      colors,
+      text,
+      dimensions,
+    ];
   }
 }
