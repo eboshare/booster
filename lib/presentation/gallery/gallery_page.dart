@@ -6,9 +6,11 @@ import 'package:booster/presentation/core/design_system/design_system.dart';
 import 'package:booster/config/injection/injection.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/utils/extensions/extensions.dart';
-import 'package:booster/domain/gallery/gallery.dart';
 import 'package:booster/presentation/core/components/error_placeholder.dart';
 import 'package:booster/presentation/gallery/gallery_tile.dart';
+import 'package:booster/domain/gallery/gallery_event/gallery_event.dart';
+import 'package:booster/domain/gallery/gallery_state_entity/gallery_state_entity.dart';
+import 'package:booster/domain/gallery/i_gallery_bloc.dart';
 
 class GalleryPage extends StatefulWidget {
   @override

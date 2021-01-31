@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import 'package:booster/domain/gallery/gallery.dart';
-import 'package:booster/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery_state_entity/gallery_state_entity.dart';
+import 'package:booster/infrastructure/gallery/image_local_dto/image_local_dto.dart';
 import 'package:booster/utils/converters/image_local_dto_list_converter.dart';
 
 part 'gallery_state_dto.freezed.dart';

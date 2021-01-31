@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'package:booster/domain/gallery/gallery.dart';
 import 'package:kt_dart/collection.dart';
+
+import 'package:booster/domain/gallery/image_entity/image_entity.dart';
 
 part 'gallery_state_entity.freezed.dart';
 

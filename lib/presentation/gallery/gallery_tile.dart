@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/domain/gallery/image_entity/image_entity.dart';
 import 'package:booster/presentation/core/components/a_cached_network_image.dart';
 import 'package:booster/presentation/core/design_system/design_system.dart';
 

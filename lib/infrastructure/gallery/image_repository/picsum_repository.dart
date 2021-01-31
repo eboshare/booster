@@ -4,8 +4,10 @@ import 'package:kt_dart/collection.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-import 'package:booster/domain/gallery/gallery.dart';
-import 'package:booster/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery_failure/gallery_failure.dart';
+import 'package:booster/domain/gallery/i_image_repository.dart';
+import 'package:booster/domain/gallery/image_entity/image_entity.dart';
+import 'package:booster/infrastructure/gallery/image_network_dto/image_network_dto.dart';
 
 part 'picsum_repository.g.dart';
 

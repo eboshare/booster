@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:booster/domain/gallery/gallery.dart';
+import 'package:booster/domain/gallery/image_entity/image_entity.dart';
 
 class ACachedNetworkImage extends StatelessWidget {
   final ImageEntity image;
