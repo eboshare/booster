@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -7,9 +7,12 @@ import 'package:dartz/dartz.dart';
 
 import 'package:booster/config/injection/injection.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
-import 'package:booster/domain/gallery/gallery.dart';
 import 'package:booster/presentation/app_widget.dart';
 import 'package:booster/presentation/gallery/gallery_page.dart';
+import 'package:booster/domain/gallery/gallery_failure/gallery_failure.dart';
+import 'package:booster/domain/gallery/i_image_repository.dart';
+import 'package:booster/domain/gallery/image_entity/image_entity.dart';
+import 'package:booster/utils/extensions/extensions.dart';
 
 void main() {
   group('Loading', () {
@@ -70,8 +73,8 @@ void main() {
 
       // assert
       expect(find.text(S.current.galleryPageTitle), findsOneWidget);
-      expect(find.text(mockImages[0].author), findsOneWidget);
-      expect(find.text(mockImages.get(-1).author), findsOneWidget);
+      expect(find.text(mockImages.firstElement.author), findsOneWidget);
+      expect(find.text(mockImages.lastElement.author), findsOneWidget);
     });
   });
 }
