@@ -5,12 +5,8 @@ import 'package:booster/infrastructure/gallery/gallery.dart';
 
 mixin GalleryStateConverterMixin on HydratedBloc<GalleryEvent, GalleryStateEntity> {
   @override
-  GalleryStateEntity fromJson(Map<String, dynamic> json) {
-    return GalleryStateDto.fromJson(json).toStateEntity();
-  }
+  GalleryStateEntity fromJson(Map<String, dynamic> json) => GalleryStateDto.fromJson(json).toEntity();
 
   @override
-  Map<String, dynamic> toJson(GalleryStateEntity state) {
-    return GalleryStateDto.fromStateEntity(state).toJson();
-  }
+  Map<String, dynamic> toJson(GalleryStateEntity state) => GalleryStateDto.fromEntity(state).toJson();
 }

@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 import 'package:booster/domain/gallery/gallery.dart';
 import 'package:booster/infrastructure/gallery/gallery.dart';
 
-// implements keyword is required for injectable to match interface to this class implementation.
 @LazySingleton(as: IGalleryBloc)
 class GalleryBloc extends HydratedBloc<GalleryEvent, GalleryStateEntity>
     with GalleryStateConverterMixin
