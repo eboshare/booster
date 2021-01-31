@@ -48,7 +48,7 @@ class _GalleryPageState extends State<GalleryPage> {
             success: (images) {
               return ListView.separated(
                 padding: EdgeInsets.all(designSystem.dimensions.listViewPadding),
-                itemCount: images.length,
+                itemCount: images.size,
                 separatorBuilder: (_, __) {
                   return SizedBox(
                     height: designSystem.dimensions.listViewPadding,

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -25,10 +26,12 @@ class PicsumRepository implements IImageRepository {
   const PicsumRepository(this._client);
 
   @override
-  Future<Either<GalleryFailure, List<ImageEntity>>> getImages() async {
+  Future<Either<GalleryFailure, KtList<ImageEntity>>> getImages() async {
     try {
       final imageDtos = await _client.getImagesList();
-      final imageEntities = imageDtos.map((dto) => dto.toEntity()).toList();
+      final imageEntities = KtList.from(imageDtos).map(
+        (dto) => dto.toEntity(),
+      );
       return Right(imageEntities);
     } on DioError {
       return Left(GalleryFailure.unknown());

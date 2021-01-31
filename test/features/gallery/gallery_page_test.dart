@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 
@@ -12,24 +13,26 @@ import 'package:booster/presentation/gallery/gallery_page.dart';
 
 void main() {
   group('Loading', () {
-    const mockImages = [
-      ImageEntity(
-        id: '0',
-        author: 'Alejandro Escamilla',
-        width: 5616,
-        height: 3744,
-        url: 'https://unsplash.com/photos/yC-Yzbqy7PY',
-        downloadUrl: 'https://picsum.photos/id/0/5616/3744',
-      ),
-      ImageEntity(
-        id: '10',
-        author: 'Paul Jarvis',
-        width: 2500,
-        height: 1667,
-        url: 'https://unsplash.com/photos/6J--NXulQCs',
-        downloadUrl: 'https://picsum.photos/id/10/2500/1667',
-      ),
-    ];
+    final mockImages = KtList.from(
+      const [
+        ImageEntity(
+          id: '0',
+          author: 'Alejandro Escamilla',
+          width: 5616,
+          height: 3744,
+          url: 'https://unsplash.com/photos/yC-Yzbqy7PY',
+          downloadUrl: 'https://picsum.photos/id/0/5616/3744',
+        ),
+        ImageEntity(
+          id: '10',
+          author: 'Paul Jarvis',
+          width: 2500,
+          height: 1667,
+          url: 'https://unsplash.com/photos/6J--NXulQCs',
+          downloadUrl: 'https://picsum.photos/id/10/2500/1667',
+        ),
+      ],
+    );
 
     IImageRepository mockImageRepository;
     Widget galleryPage;
@@ -59,7 +62,7 @@ void main() {
     testWidgets('The images should be displayed on success loading', (tester) async {
       // arrange
       when(mockImageRepository.getImages()).thenAnswer(
-        (_) async => const Right(mockImages),
+        (_) async => Right(mockImages),
       );
 
       // act
@@ -67,8 +70,8 @@ void main() {
 
       // assert
       expect(find.text(S.current.galleryPageTitle), findsOneWidget);
-      expect(find.text(mockImages.first.author), findsOneWidget);
-      expect(find.text(mockImages.last.author), findsOneWidget);
+      expect(find.text(mockImages[0].author), findsOneWidget);
+      expect(find.text(mockImages.get(-1).author), findsOneWidget);
     });
   });
 }
