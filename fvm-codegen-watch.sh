@@ -1,1 +1,1 @@
-fvm flutter packages pub run build_runner watch --delete-conflicting-outputs
+fvm flutter pub run build_runner watch --delete-conflicting-outputs
