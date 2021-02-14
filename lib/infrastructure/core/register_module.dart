@@ -1,4 +1,3 @@
-import 'package:booster/infrastructure/core/request_retry_scheduler/i_request_retry_scheduler.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -7,6 +6,7 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 
 import 'package:booster/infrastructure/core/interceptors/request_retry_interceptor.dart';
 import 'package:booster/config/injection/injection.dart';
+import 'package:booster/infrastructure/core/request_retry_scheduler/i_request_retry_scheduler.dart';
 
 @module
 abstract class RegisterModule {
