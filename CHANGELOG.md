@@ -2,6 +2,7 @@
 - Update fade style of `ACachedNetworkImage`.
 - Add `RequestRetryInterceptor`.
 - Add `RequestRetryScheduler`.
+- Add `IConnectionRepository`. 
 
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.
