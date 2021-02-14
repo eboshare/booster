@@ -19,16 +19,18 @@ class ACachedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       fit: BoxFit.cover,
+      fadeInDuration: const Duration(),
+      fadeOutDuration: const Duration(),
       imageUrl: image.constructDownloadUrl(
         width: width.toInt(),
         height: height.toInt(),
       ),
-      placeholder: (context, _) {
+      placeholder: (_, __) {
         return const Center(
           child: CircularProgressIndicator(),
         );
       },
-      errorWidget: (context, _, __) {
+      errorWidget: (_, __, ___) {
         return Container(
           color: Colors.grey,
           child: const Icon(
