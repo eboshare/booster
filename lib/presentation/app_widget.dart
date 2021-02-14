@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/presentation/core/navigation/router.gr.dart';
 import 'package:booster/presentation/core/design_system/design_system.dart';
-import 'package:booster/presentation/core/design_system/design_system_data.dart';
+import 'package:booster/presentation/core/design_system/design_system_data/design_system_data.dart';
 
 /// Builds root widget and is required for testing.
 ///

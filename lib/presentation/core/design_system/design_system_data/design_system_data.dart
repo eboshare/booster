@@ -1,21 +1,19 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:booster/presentation/core/design_system/design_system_colors.dart';
-import 'package:booster/presentation/core/design_system/design_system_text.dart';
-import 'package:booster/presentation/core/design_system/design_system_dimensions.dart';
+import 'package:booster/presentation/core/design_system/design_system_colors/design_system_colors.dart';
+import 'package:booster/presentation/core/design_system/design_system_text/design_system_text.dart';
+import 'package:booster/presentation/core/design_system/design_system_dimensions/design_system_dimensions.dart';
 
-class DesignSystemData extends Equatable {
-  final DesignSystemColors colors;
-  final DesignSystemText text;
-  final DesignSystemDimensions dimensions;
+part 'design_system_data.freezed.dart';
 
-  const DesignSystemData({
-    @required this.colors,
-    @required this.text,
-    @required this.dimensions,
-  });
+@freezed
+abstract class DesignSystemData with _$DesignSystemData {
+  const factory DesignSystemData({
+    @required DesignSystemColors colors,
+    @required DesignSystemText text,
+    @required DesignSystemDimensions dimensions,
+  }) = _DesignSystemData;
 
   factory DesignSystemData.main() {
     // Const variables are required for DesignSystemData to compile as const.
@@ -60,14 +58,5 @@ class DesignSystemData extends Equatable {
         ),
       ),
     );
-  }
-
-  @override
-  List<Object> get props {
-    return [
-      colors,
-      text,
-      dimensions,
-    ];
   }
 }
