@@ -1,3 +1,6 @@
+### [Unreleased]
+- Update fade style of `ACachedNetworkImage`.
+
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.
 - Move `RegisterModule` from config to infrastructure.
