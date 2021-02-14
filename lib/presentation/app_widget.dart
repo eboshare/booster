@@ -32,7 +32,7 @@ Widget _initializeApp({
       builder: (context) {
         return MaterialApp(
           // Required due to the inability to use [S.of(context)]
-          title: 'Flutter Starter Template',
+          title: 'Booster',
           home: page,
           builder: builder,
           theme: ThemeData(
