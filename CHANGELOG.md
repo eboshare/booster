@@ -1,3 +1,8 @@
-### 2.0.0
+### 2.0.1
+- Move `Logger` to `RegisterModule`.
+- Move `RegisterModule` from config to infrastructure.
+- Improve the file structure.
+- Add `kt_dart` and update `List`s to `KtList`s.
 
+### 2.0.0
 - Rename the project from `flutter_booster_kit` to `booster`.
