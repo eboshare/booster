@@ -9,5 +9,5 @@ Future<void> main() async {
   configureDependencies(Environment.prod);
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build();
-  runApp(App());
+  runApp(App.withRouter());
 }

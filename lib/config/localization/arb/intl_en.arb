@@ -1,6 +1,8 @@
 {
   "@@locale": "en",
 
+  "appTitle": "Booster",
+
   "galleryPageTitle": "Images",
   "@galleryPageTitle": {
     "description": "Displayed in the app bar of the image list page"
@@ -9,5 +11,15 @@
   "errorGalleryLoading": "Can't load an image list",
   "@errorGalleryLoading": {
     "description": "Displayed when a loading error occurs on the image list page"
+  },
+
+  "connectionLost": "Connection lost. No internet",
+  "@connectionLost": {
+    "description": "Displayed everywhere in the app"
+  },
+
+  "connectionRestored": "Connection restored",
+  "@connectionRestored": {
+    "description": "Displayed everywhere in the app"
   }
 }

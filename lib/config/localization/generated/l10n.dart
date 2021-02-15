@@ -35,6 +35,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Booster`
+  String get appTitle {
+    return Intl.message(
+      'Booster',
+      name: 'appTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Images`
   String get galleryPageTitle {
     return Intl.message(
@@ -51,6 +61,26 @@ class S {
       'Can\'t load an image list',
       name: 'errorGalleryLoading',
       desc: 'Displayed when a loading error occurs on the image list page',
+      args: [],
+    );
+  }
+
+  /// `Connection lost. No internet`
+  String get connectionLost {
+    return Intl.message(
+      'Connection lost. No internet',
+      name: 'connectionLost',
+      desc: 'Displayed everywhere in the app',
+      args: [],
+    );
+  }
+
+  /// `Connection restored`
+  String get connectionRestored {
+    return Intl.message(
+      'Connection restored',
+      name: 'connectionRestored',
+      desc: 'Displayed everywhere in the app',
       args: [],
     );
   }

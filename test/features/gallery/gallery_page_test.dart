@@ -44,7 +44,7 @@ void main() {
       getIt.reset();
       configureDependencies(Environment.test);
       mockImageRepository = getIt();
-      galleryPage = initializeAppWithPage(page: GalleryPage());
+      galleryPage = App.withSinglePage(page: GalleryPage());
     });
 
     testWidgets('The correct message should be displayed on loading error', (tester) async {
