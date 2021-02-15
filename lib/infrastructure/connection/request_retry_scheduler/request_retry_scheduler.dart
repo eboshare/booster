@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:injectable/injectable.dart';
 
-import 'package:booster/infrastructure/core/connection_repository/i_connection_repository.dart';
-import 'package:booster/infrastructure/core/request_retry_scheduler/i_request_retry_scheduler.dart';
+import 'package:booster/domain/connection/connection_status.dart';
+import 'package:booster/domain/connection/i_connection_repository.dart';
+import 'package:booster/domain/connection/i_request_retry_scheduler.dart';
 
 @LazySingleton(as: IRequestRetryScheduler)
 class DataConnectionRequestRetryScheduler implements IRequestRetryScheduler {

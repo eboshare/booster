@@ -4,9 +4,9 @@ import 'package:logger/logger.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 
-import 'package:booster/infrastructure/core/interceptors/request_retry_interceptor.dart';
+import 'package:booster/infrastructure/connection/request_retry_interceptor.dart';
 import 'package:booster/config/injection/injection.dart';
-import 'package:booster/infrastructure/core/request_retry_scheduler/i_request_retry_scheduler.dart';
+import 'package:booster/domain/connection/i_request_retry_scheduler.dart';
 
 @module
 abstract class RegisterModule {

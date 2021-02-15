@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import 'package:booster/infrastructure/core/request_retry_scheduler/i_request_retry_scheduler.dart';
+import 'package:booster/domain/connection/i_request_retry_scheduler.dart';
 
 class RequestRetryInterceptor extends Interceptor {
   final IRequestRetryScheduler _retryScheduler;
