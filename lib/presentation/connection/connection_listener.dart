@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart' hide Router, ConnectionState;
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:booster/domain/connection/connection_status.dart';
+import 'package:booster/domain/connection/i_connection_bloc.dart';
+import 'package:booster/config/injection/injection.dart';
+import 'package:booster/domain/connection/connection_state/connection_state.dart';
+
+typedef ShowSnackBar = void Function(ConnectionStatus status);
+
+class ConnectionListener extends StatelessWidget {
+  final ShowSnackBar showSnackBar;
+  final Widget child;
+
+  const ConnectionListener({
+    Key key,
+    @required this.showSnackBar,
+    @required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<IConnectionBloc, ConnectionState>(
+      child: child,
+      cubit: getIt<IConnectionBloc>(),
+      listenWhen: _listenWhen,
+      listener: (context, state) {
+        state.map(
+          initial: (_) => null,
+          connected: (_) => showSnackBar(ConnectionStatus.connected),
+          disconnected: (_) => showSnackBar(ConnectionStatus.disconnected),
+        );
+      },
+    );
+  }
+
+  bool _listenWhen(ConnectionState previousState, ConnectionState currentState) {
+    bool mapTrue(_) => true;
+    bool mapFalse() => false;
+
+    return previousState.map(
+      initial: (_) => currentState.maybeMap(
+        // If previous state is initial and current is disconnected.
+        disconnected: mapTrue,
+        orElse: mapFalse,
+      ),
+      connected: (_) => currentState.maybeMap(
+        // If previous state is connected and current is disconnected.
+        disconnected: mapTrue,
+        orElse: mapFalse,
+      ),
+      disconnected: (_) => currentState.maybeMap(
+        // If previous state is disconnected and current is connected.
+        connected: mapTrue,
+        orElse: mapFalse,
+      ),
+    );
+  }
+}
