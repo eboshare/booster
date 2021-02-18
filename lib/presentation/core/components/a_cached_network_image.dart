@@ -25,12 +25,12 @@ class ACachedNetworkImage extends StatelessWidget {
         width: width.toInt(),
         height: height.toInt(),
       ),
-      placeholder: (_, __) {
+      placeholder: (context, __) {
         return const Center(
           child: CircularProgressIndicator(),
         );
       },
-      errorWidget: (_, __, ___) {
+      errorWidget: (context, __, ___) {
         return Container(
           color: Colors.grey,
           child: const Icon(

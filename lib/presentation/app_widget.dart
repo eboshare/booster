@@ -60,7 +60,7 @@ class App extends StatelessWidget {
                   child: OneContext.instance.builder(context, widget),
                   showSnackBar: (status) {
                     OneContext.instance.showSnackBar(
-                      builder: (_) => SnackBar(
+                      builder: (context) => SnackBar(
                         content: Text(
                           _mapConnectionStatusToText(context, status),
                         ),
