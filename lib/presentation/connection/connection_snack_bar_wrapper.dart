@@ -1,10 +1,10 @@
-import 'package:booster/presentation/core/design_system/design_system.dart';
 import 'package:flutter/material.dart' hide Router, ConnectionState;
 import 'package:auto_route/auto_route.dart';
 
 import 'package:booster/domain/connection/connection_status.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/presentation/connection/connection_listener.dart';
+import 'package:booster/presentation/core/design_system/design_system.dart';
 
 typedef ShowSnackBar = Future<ScaffoldFeatureController<SnackBar, SnackBarClosedReason>> Function({
   @required SnackBar Function(BuildContext) builder,
