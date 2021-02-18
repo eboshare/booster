@@ -11,5 +11,6 @@ abstract class DesignSystemColors with _$DesignSystemColors {
     @required Color black,
     @required Color softBlack,
     @required Color blue,
+    @required Color green,
   }) = _DesignSystemColors;
 }

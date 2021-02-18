@@ -7,15 +7,15 @@ import 'package:booster/domain/connection/i_connection_bloc.dart';
 import 'package:booster/config/injection/injection.dart';
 import 'package:booster/domain/connection/connection_state/connection_state.dart';
 
-typedef ShowSnackBar = void Function(ConnectionStatus status);
+typedef OnStatusChanged = void Function(ConnectionStatus status);
 
 class ConnectionListener extends StatelessWidget {
-  final ShowSnackBar showSnackBar;
+  final OnStatusChanged onStatusChanged;
   final Widget child;
 
   const ConnectionListener({
     Key key,
-    @required this.showSnackBar,
+    @required this.onStatusChanged,
     @required this.child,
   }) : super(key: key);
 
@@ -28,8 +28,8 @@ class ConnectionListener extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) => null,
-          connected: (_) => showSnackBar(ConnectionStatus.connected),
-          disconnected: (_) => showSnackBar(ConnectionStatus.disconnected),
+          connected: (_) => onStatusChanged(ConnectionStatus.connected),
+          disconnected: (_) => onStatusChanged(ConnectionStatus.disconnected),
         );
       },
     );

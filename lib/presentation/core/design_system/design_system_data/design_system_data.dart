@@ -21,12 +21,14 @@ abstract class DesignSystemData with _$DesignSystemData {
     const whiteColor = Color(0xFFFFFFFF);
     const softBlackColor = Color(0xFF3E3C42);
     const blueColor = Colors.blue;
+    const greenColor = Colors.green;
 
     const colors = DesignSystemColors(
       black: blackColor,
       white: whiteColor,
       softBlack: softBlackColor,
       blue: blueColor,
+      green: greenColor,
     );
 
     return const DesignSystemData(

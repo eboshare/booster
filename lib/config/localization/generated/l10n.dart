@@ -65,20 +65,20 @@ class S {
     );
   }
 
-  /// `Connection lost. No internet`
+  /// `No connection`
   String get connectionLost {
     return Intl.message(
-      'Connection lost. No internet',
+      'No connection',
       name: 'connectionLost',
       desc: 'Displayed everywhere in the app',
       args: [],
     );
   }
 
-  /// `Connection restored`
+  /// `Back online`
   String get connectionRestored {
     return Intl.message(
-      'Connection restored',
+      'Back online',
       name: 'connectionRestored',
       desc: 'Displayed everywhere in the app',
       args: [],

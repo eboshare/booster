@@ -13,12 +13,12 @@
     "description": "Displayed when a loading error occurs on the image list page"
   },
 
-  "connectionLost": "Connection lost. No internet",
+  "connectionLost": "No connection",
   "@connectionLost": {
     "description": "Displayed everywhere in the app"
   },
 
-  "connectionRestored": "Connection restored",
+  "connectionRestored": "Back online",
   "@connectionRestored": {
     "description": "Displayed everywhere in the app"
   }
