@@ -4,6 +4,7 @@
 - Add `RequestRetryScheduler`.
 - Add `IConnectionRepository`.
 - Add `IConnectionBloc`.
+- Add connection status StackBar.
 
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.
