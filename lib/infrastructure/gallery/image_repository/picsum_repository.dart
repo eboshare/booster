@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -11,17 +10,14 @@ import 'package:booster/infrastructure/gallery/image_network_dto/image_network_d
 
 part 'picsum_repository.g.dart';
 
-@lazySingleton // This annotation is just for convenience.
 @RestApi(baseUrl: 'https://picsum.photos/')
 abstract class PicsumClient {
-  @factoryMethod
   factory PicsumClient(Dio dio) = _PicsumClient;
 
   @GET('/v2/list')
   Future<List<ImageNetworkDto>> getImagesList();
 }
 
-@LazySingleton(as: IImageRepository, env: [Environment.prod])
 class PicsumRepository implements IImageRepository {
   final PicsumClient _client;
 

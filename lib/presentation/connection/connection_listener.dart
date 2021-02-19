@@ -9,7 +9,7 @@ import 'package:booster/domain/connection/connection_state/connection_state.dart
 
 typedef OnStatusChanged = void Function(ConnectionStatus status);
 
-class ConnectionListener extends StatelessWidget {
+class ConnectionListener extends StatefulWidget {
   final OnStatusChanged onStatusChanged;
   final Widget child;
 
@@ -20,16 +20,36 @@ class ConnectionListener extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _ConnectionListenerState createState() => _ConnectionListenerState();
+}
+
+class _ConnectionListenerState extends State<ConnectionListener> {
+  // ignore: close_sinks
+  IConnectionBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = getIt();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    getIt.dispose(_bloc);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener<IConnectionBloc, ConnectionState>(
-      child: child,
-      cubit: getIt<IConnectionBloc>(),
+      child: widget.child,
+      cubit: _bloc,
       listenWhen: _listenWhen,
       listener: (context, state) {
         state.map(
           initial: (_) => null,
-          connected: (_) => onStatusChanged(ConnectionStatus.connected),
-          disconnected: (_) => onStatusChanged(ConnectionStatus.disconnected),
+          connected: (_) => widget.onStatusChanged(ConnectionStatus.connected),
+          disconnected: (_) => widget.onStatusChanged(ConnectionStatus.disconnected),
         );
       },
     );

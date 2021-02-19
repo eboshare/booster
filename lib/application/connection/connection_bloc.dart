@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
 
 import 'package:booster/domain/connection/i_connection_repository.dart';
 import 'package:booster/domain/connection/connection_event/connection_event.dart';
@@ -19,7 +18,6 @@ ConnectionEvent _mapStatusToEvent(ConnectionStatus status) {
   throw AssertionError();
 }
 
-@LazySingleton(as: IConnectionBloc)
 class ConnectionBloc extends Bloc<ConnectionEvent, ConnectionState> implements IConnectionBloc {
   final StreamSubscription<ConnectionStatus> _connectionSubscription;
   final IConnectionRepository _connectionRepository;
@@ -29,7 +27,6 @@ class ConnectionBloc extends Bloc<ConnectionEvent, ConnectionState> implements I
     this._connectionRepository,
   ) : super(const ConnectionState.initial());
 
-  @factoryMethod
   factory ConnectionBloc(IConnectionRepository repository) {
     ConnectionBloc bloc;
 

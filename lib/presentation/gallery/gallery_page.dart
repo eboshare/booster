@@ -18,12 +18,19 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
-  final IGalleryBloc bloc = getIt();
+  IGalleryBloc _bloc;
 
   @override
   void initState() {
     super.initState();
-    bloc.add(const GalleryEvent.loadImages());
+    _bloc = getIt();
+    _bloc.add(const GalleryEvent.loadImages());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    getIt.dispose(_bloc);
   }
 
   @override
@@ -35,7 +42,7 @@ class _GalleryPageState extends State<GalleryPage> {
         title: Text(str.galleryPageTitle),
       ),
       body: BlocBuilder<IGalleryBloc, GalleryStateEntity>(
-        cubit: bloc,
+        cubit: _bloc,
         builder: (context, state) {
           return state.when(
             initial: _buildProgressIndicator,

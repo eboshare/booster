@@ -1,10 +1,8 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:injectable/injectable.dart';
 
 import 'package:booster/domain/connection/connection_status.dart';
 import 'package:booster/domain/connection/i_connection_repository.dart';
 
-@LazySingleton(as: IConnectionRepository)
 class DataConnectionRepository implements IConnectionRepository {
   final DataConnectionChecker _connectionChecker;
 
