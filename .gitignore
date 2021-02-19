@@ -40,7 +40,7 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Exceptions to above rules.
+# Exceptions to above rules
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # Code generation
@@ -49,6 +49,3 @@ app.*.map.json
 *.freezed.dart
 *.iconfig.dart
 *.config.dart
-
-# Symbolic link to flutter sdk
-.fvm/flutter_sdk

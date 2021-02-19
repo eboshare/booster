@@ -5,6 +5,7 @@
 - Add `IConnectionRepository`.
 - Add `IConnectionBloc`.
 - Add connection status StackBar.
+- Replace `fvm` with `asdf` in this project. 
 
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.

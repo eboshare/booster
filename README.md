@@ -2,12 +2,7 @@
 
 The adjusted template for a new Flutter project which sticks to clean architecture.
 
-
 ### This project uses
-
-- [fvm](https://github.com/leoafarias/fvm) - cli tool for flutter version management
-    - When changing flutter version you may need to delete .packages file and run `fvm flutter pub get` to update references to packages. 
-    - For convenience in IDE search mark folder .fvm/flutter_sdk as excluded.
 
 - flutter_intl - localization plugin for IDE
     - [For Visual Studio Code: Version 1.13.0](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl)
