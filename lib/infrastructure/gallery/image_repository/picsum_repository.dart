@@ -27,9 +27,7 @@ class PicsumRepository implements IImageRepository {
   Future<Either<GalleryFailure, BuiltList<ImageEntity>>> getImages() async {
     try {
       final imageDtos = await _client.getImagesList();
-      final imageEntities = BuiltList.from(imageDtos).map(
-        (dto) => dto.toEntity(),
-      );
+      final imageEntities = imageDtos.map((dto) => dto.toEntity()).toBuiltList();
       return Right(imageEntities);
     } on DioError {
       return Left(GalleryFailure.unknown());

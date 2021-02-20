@@ -17,14 +17,14 @@ class App extends StatelessWidget {
     this.page,
   }) : super(key: key);
 
-  factory App.withRouter({
+  factory App.fromRoot({
     Key key,
   }) {
     return App._(key: key);
   }
 
   /// Required for testing.
-  factory App.withSinglePage({
+  factory App.fromDirectPage({
     Key key,
     @required Widget page,
   }) {
