@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:built_collection/built_collection.dart';
 
 import 'package:booster/domain/gallery/gallery_failure/gallery_failure.dart';
 import 'package:booster/domain/gallery/i_image_repository.dart';
@@ -24,10 +24,10 @@ class PicsumRepository implements IImageRepository {
   const PicsumRepository(this._client);
 
   @override
-  Future<Either<GalleryFailure, KtList<ImageEntity>>> getImages() async {
+  Future<Either<GalleryFailure, BuiltList<ImageEntity>>> getImages() async {
     try {
       final imageDtos = await _client.getImagesList();
-      final imageEntities = KtList.from(imageDtos).map(
+      final imageEntities = BuiltList.from(imageDtos).map(
         (dto) => dto.toEntity(),
       );
       return Right(imageEntities);
