@@ -6,6 +6,7 @@
 - Add `IConnectionBloc`.
 - Add connection status StackBar.
 - Replace `fvm` with `asdf` in this project. 
+- Replace `kt_dart` with `built_collection`.
 
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.
