@@ -3,7 +3,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:booster/config/injection/injection.dart';
 import 'package:booster/presentation/app_widget.dart';
-import 'package:booster/utils/environment.dart';
+import 'package:booster/utils/environment/environment.dart';
 
 Future<Widget> initializeApp({
   @required Environment environment,

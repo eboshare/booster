@@ -11,7 +11,7 @@ import 'package:booster/domain/gallery/gallery_failure/gallery_failure.dart';
 import 'package:booster/domain/gallery/i_image_repository.dart';
 import 'package:booster/domain/gallery/image_entity/image_entity.dart';
 import 'package:booster/initialize_app.dart';
-import 'package:booster/utils/environment.dart';
+import 'package:booster/utils/environment/environment.dart';
 
 void main() {
   group('Loading', () {
@@ -41,7 +41,7 @@ void main() {
 
     setUp(() async {
       galleryPage = await initializeApp(
-        environment: Environment.testing,
+        environment: const Environment.test(),
         page: GalleryPage(),
       );
       mockImageRepository = getIt();

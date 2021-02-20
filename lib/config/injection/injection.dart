@@ -20,11 +20,11 @@ import 'package:booster/infrastructure/gallery/image_repository/picsum_repositor
 import 'package:booster/infrastructure/connection/connection_repository/fake_connection_repository.dart';
 import 'package:booster/infrastructure/core/storages/fake_storage.dart';
 import 'package:booster/infrastructure/gallery/image_repository/mock_image_repository.dart';
-import 'package:booster/utils/environment.dart';
+import 'package:booster/utils/environment/environment.dart';
 
 final getIt = GetItExtended(GetIt.instance);
 
-Future<void> configureDependencies(Environment environment) async {
+Future<void> configureDependencies(Environment env) async {
   getIt.registerLazySingleton<Logger>(
     () => Logger(
       printer: SimplePrinter(
@@ -60,37 +60,31 @@ Future<void> configureDependencies(Environment environment) async {
 
   getIt.registerLazySingleton<IConnectionRepository>(
     () {
-      switch (environment) {
-        case Environment.development:
-        case Environment.production:
-          return DataConnectionRepository(getIt<DataConnectionChecker>());
-        case Environment.testing:
-          return FakeConnectionRepository();
-      }
-      throw AssertionError();
+      IConnectionRepository whenDevOrProd() => DataConnectionRepository(getIt<DataConnectionChecker>());
+      return env.when(
+        dev: whenDevOrProd,
+        prod: whenDevOrProd,
+        test: () => FakeConnectionRepository(),
+      );
     },
   );
   getIt.registerLazySingleton<IImageRepository>(
     () {
-      switch (environment) {
-        case Environment.production:
-        case Environment.development:
-          return PicsumRepository(getIt<PicsumClient>());
-        case Environment.testing:
-          return MockImageRepository();
-      }
-      throw AssertionError();
+      IImageRepository whenDevOrProd() => PicsumRepository(getIt<PicsumClient>());
+      return env.when(
+        dev: whenDevOrProd,
+        prod: whenDevOrProd,
+        test: () => MockImageRepository(),
+      );
     },
   );
   getIt.registerLazySingletonAsync<Storage>(() async {
-    switch (environment) {
-      case Environment.production:
-      case Environment.development:
-        return await HydratedStorage.build();
-      case Environment.testing:
-        return FakeStorage();
-    }
-    throw AssertionError();
+    Future<Storage> whenDevOrProd() => HydratedStorage.build();
+    return env.when(
+      dev: whenDevOrProd,
+      prod: whenDevOrProd,
+      test: () => FakeStorage(),
+    );
   });
 
   await getIt.allReady();
