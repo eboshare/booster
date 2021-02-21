@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:booster/presentation/core/design_system/design_system.dart';
-import 'package:booster/config/injection/injection.dart';
+import 'package:booster/config/injection.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/utils/extensions/extensions.dart';
 import 'package:booster/presentation/core/components/error_placeholder.dart';

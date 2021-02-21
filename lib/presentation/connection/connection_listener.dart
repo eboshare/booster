@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:booster/domain/connection/connection_status.dart';
 import 'package:booster/domain/connection/i_connection_bloc.dart';
-import 'package:booster/config/injection/injection.dart';
+import 'package:booster/config/injection.dart';
 import 'package:booster/domain/connection/connection_state/connection_state.dart';
 
 typedef OnStatusChanged = void Function(ConnectionStatus status);

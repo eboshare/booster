@@ -4,14 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:booster/config/injection/injection.dart';
+import 'package:booster/config/injection.dart';
 import 'package:booster/config/localization/generated/l10n.dart';
 import 'package:booster/presentation/gallery/gallery_page.dart';
 import 'package:booster/domain/gallery/gallery_failure/gallery_failure.dart';
 import 'package:booster/domain/gallery/i_image_repository.dart';
 import 'package:booster/domain/gallery/image_entity/image_entity.dart';
-import 'package:booster/initialize_app.dart';
-import 'package:booster/utils/environment/environment.dart';
+import 'package:booster/app_initializers.dart';
 
 void main() {
   group('Loading', () {
@@ -40,8 +39,7 @@ void main() {
     Widget galleryPage;
 
     setUp(() async {
-      galleryPage = await initializeApp(
-        environment: const Environment.test(),
+      galleryPage = await initAppForTesting(
         page: GalleryPage(),
       );
       mockImageRepository = getIt();

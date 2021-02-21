@@ -1,3 +1,5 @@
+import 'package:booster/config/injection.dart';
+import 'package:booster/domain/core/i_error_report_repository.dart';
 import 'package:flutter/material.dart' hide Router, ConnectionState;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -53,6 +55,9 @@ class App extends StatelessWidget {
             ],
             builder: ExtendedNavigator.builder<Router>(
               router: Router(),
+              observers: [
+                getIt<IErrorReportRepository>().getNavigationObserver(),
+              ],
               builder: (context, child) {
                 final targetChild = page ?? child;
                 return ConnectionStackBarWrapper(

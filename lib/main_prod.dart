@@ -1,4 +1,4 @@
-import 'package:booster/initialize_app.dart';
-import 'package:booster/utils/environment/environment.dart';
+import 'package:booster/app_initializers.dart';
+import 'package:booster/utils/sealed_classes/environment.dart';
 
-Future<void> main() => initializeAndRunApp(const Environment.prod());
+Future<void> main() => initAndRunApp(const Environment.prod());

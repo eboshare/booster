@@ -5,7 +5,12 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 
-import 'package:booster/config/injection/get_it_extended.dart';
+import 'package:booster/utils/config_reader/config/config.dart';
+import 'package:booster/infrastructure/core/error_report_repository/fake_error_report_repository.dart';
+import 'package:booster/utils/config_reader/reader.dart';
+import 'package:booster/domain/core/i_error_report_repository.dart';
+import 'package:booster/infrastructure/core/error_report_repository/sentry_error_report_repository.dart';
+import 'package:booster/utils/get_it_extended.dart';
 import 'package:booster/domain/connection/i_request_retry_scheduler.dart';
 import 'package:booster/infrastructure/connection/request_retry_interceptor.dart';
 import 'package:booster/application/connection/connection_bloc.dart';
@@ -20,11 +25,13 @@ import 'package:booster/infrastructure/gallery/image_repository/picsum_repositor
 import 'package:booster/infrastructure/connection/connection_repository/fake_connection_repository.dart';
 import 'package:booster/infrastructure/core/storages/fake_storage.dart';
 import 'package:booster/infrastructure/gallery/image_repository/mock_image_repository.dart';
-import 'package:booster/utils/environment/environment.dart';
+import 'package:booster/utils/sealed_classes/environment.dart';
 
 final getIt = GetItExtended(GetIt.instance);
 
 Future<void> configureDependencies(Environment env) async {
+  getIt.registerSingleton<Config>(await loadConfig('config/app_config.json'));
+
   getIt.registerLazySingleton<Logger>(
     () => Logger(
       printer: SimplePrinter(
@@ -84,6 +91,18 @@ Future<void> configureDependencies(Environment env) async {
       dev: whenDevOrProd,
       prod: whenDevOrProd,
       test: () => FakeStorage(),
+    );
+  });
+
+  getIt.registerLazySingleton<IErrorReportRepository>(() {
+    IErrorReportRepository whenDevOrProd() {
+      return SentryErrorReportRepository(dsn: getIt<Config>().sentryDsn);
+    }
+
+    return env.when(
+      dev: whenDevOrProd,
+      prod: whenDevOrProd,
+      test: () => FakeErrorReportRepository(),
     );
   });
 
