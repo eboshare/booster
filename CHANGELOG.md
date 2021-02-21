@@ -7,6 +7,7 @@
 - Add connection status StackBar.
 - Replace `fvm` with `asdf` in this project. 
 - Replace `kt_dart` with `built_collection`.
+- Add error reporting, at the moment with `sentry`.
 
 ### 2.0.1
 - Move `Logger` to `RegisterModule`.
