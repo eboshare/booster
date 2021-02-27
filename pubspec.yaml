@@ -2,7 +2,7 @@ name: booster
 description: The adjusted template for a new flutter project.
 
 publish_to: 'none'
-version: 2.0.1
+version: 2.1.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

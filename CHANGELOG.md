@@ -1,4 +1,7 @@
 ### [Unreleased]
+...
+
+### 2.1.0
 - Update fade style of `ACachedNetworkImage`.
 - Add `RequestRetryInterceptor`.
 - Add `RequestRetryScheduler`.
