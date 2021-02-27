@@ -1,12 +1,12 @@
-name: flutter_booster_kit
+name: booster
 description: The adjusted template for a new flutter project.
 
 publish_to: 'none'
-version: 1.1.1
+version: 2.1.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: 1.22.4
+  flutter: 1.22.6
 
 dependencies:
   flutter:
@@ -14,23 +14,34 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # presentation
   intl: ^0.16.1
-  injectable: ^1.0.4
   auto_route: ^0.6.7
-  supercharged: ^1.10.0
-  dart_extensions: ^1.0.1
-  freezed: ^0.12.1
-  dartz: ^0.9.2
+  one_context: ^0.5.0
+  cupertino_icons: ^0.1.3
+  cached_network_image: ^2.3.2+1
 
+  # application
   bloc: ^6.1.0
-  hydrated_bloc: ^6.1.0
   flutter_bloc: ^6.1.1
+
+  # infrastructure
   logger: ^0.9.2
   pretty_dio_logger: ^1.1.1
   retrofit: ^1.3.4
+  data_connection_checker: ^0.3.4
+  hydrated_bloc: ^6.1.0
+  sentry_flutter: ^4.0.5
 
-  cupertino_icons: ^0.1.3
-  cached_network_image: ^2.3.2+1
+  # utils
+  meta: ^1.2.4
+  supercharged: ^1.10.0
+  dart_extensions: ^1.0.1
+  get_it: ^5.0.6
+  freezed_annotation: ^0.12.0
+  json_annotation: ^3.1.1
+  dartz: ^0.9.2
+  built_collection: ^4.3.2
 
 dev_dependencies:
   flutter_test:
@@ -39,14 +50,16 @@ dev_dependencies:
   mockito: ^4.1.3
 
   build_runner: any
-  injectable_generator: any
   auto_route_generator: ^0.6.8
   json_serializable: ^3.4.1
+  freezed: ^0.12.7
   retrofit_generator: any
 
 flutter:
   # Includes the Material Icons font.
   uses-material-design: true
+  assets:
+    - config/
 
 flutter_intl:
   enabled: true

@@ -1,11 +1,11 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-import 'package:flutter_booster_kit/domain/gallery/gallery.dart';
-import 'package:flutter_booster_kit/infrastructure/gallery/gallery.dart';
+import 'package:booster/domain/gallery/gallery_event/gallery_event.dart';
+import 'package:booster/domain/gallery/gallery_state_entity/gallery_state_entity.dart';
+import 'package:booster/domain/gallery/i_gallery_bloc.dart';
+import 'package:booster/domain/gallery/i_image_repository.dart';
+import 'package:booster/infrastructure/gallery/gallery_state_converter_mixin.dart';
 
-// implements keyword is required for injectable to match interface to this class implementation.
-@LazySingleton(as: IGalleryBloc)
 class GalleryBloc extends HydratedBloc<GalleryEvent, GalleryStateEntity>
     with GalleryStateConverterMixin
     implements IGalleryBloc {

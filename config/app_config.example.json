@@ -1,0 +1,3 @@
+{
+  "sentryDsn": "https://example@sentry.io/add-your-dsn-here"
+}
